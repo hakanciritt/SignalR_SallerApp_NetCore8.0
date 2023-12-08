@@ -9,7 +9,7 @@
   <ItemGroup>
     <Folder Include="Dto\" />
     <Folder Include="Mappings\" />
-    <Folder Include="Services\Concretes\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>
