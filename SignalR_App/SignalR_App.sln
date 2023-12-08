@@ -3,9 +3,58 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{11F14FF6-0A54-465F-836F-D34FD1E7FF61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastracture", "Infrastracture", "{0C5A21FE-0012-47DB-8505-F4F12C54D099}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0C53EB73-185A-4575-B494-E3153146AAA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_App.Application", "Core\SignalR_App.Application\SignalR_App.Application.csproj", "{B4A3F133-2191-4A63-8963-541C85B95FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_App.Domain", "Core\SignalR_App.Domain\SignalR_App.Domain.csproj", "{6594249E-8CD7-4715-A742-196F7A8DAE92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_App.Api", "Presentation\SignalR_App.Api\SignalR_App.Api.csproj", "{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_App.Persistence", "Infrastracture\SignalR_App.Persistence\SignalR_App.Persistence.csproj", "{23EB71E5-2CDC-4A01-94D0-0D93516B6408}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_App.WebUI", "Presentation\SignalR_App.WebUI\SignalR_App.WebUI.csproj", "{80754A61-047D-4DD9-8111-2CFAD241C8BB}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4A3F133-2191-4A63-8963-541C85B95FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A3F133-2191-4A63-8963-541C85B95FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A3F133-2191-4A63-8963-541C85B95FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A3F133-2191-4A63-8963-541C85B95FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6594249E-8CD7-4715-A742-196F7A8DAE92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6594249E-8CD7-4715-A742-196F7A8DAE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6594249E-8CD7-4715-A742-196F7A8DAE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6594249E-8CD7-4715-A742-196F7A8DAE92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23EB71E5-2CDC-4A01-94D0-0D93516B6408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EB71E5-2CDC-4A01-94D0-0D93516B6408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EB71E5-2CDC-4A01-94D0-0D93516B6408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EB71E5-2CDC-4A01-94D0-0D93516B6408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80754A61-047D-4DD9-8111-2CFAD241C8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80754A61-047D-4DD9-8111-2CFAD241C8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80754A61-047D-4DD9-8111-2CFAD241C8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80754A61-047D-4DD9-8111-2CFAD241C8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4A3F133-2191-4A63-8963-541C85B95FA0} = {11F14FF6-0A54-465F-836F-D34FD1E7FF61}
+		{6594249E-8CD7-4715-A742-196F7A8DAE92} = {11F14FF6-0A54-465F-836F-D34FD1E7FF61}
+		{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78} = {0C53EB73-185A-4575-B494-E3153146AAA0}
+		{23EB71E5-2CDC-4A01-94D0-0D93516B6408} = {0C5A21FE-0012-47DB-8505-F4F12C54D099}
+		{80754A61-047D-4DD9-8111-2CFAD241C8BB} = {0C53EB73-185A-4575-B494-E3153146AAA0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {264A187F-C2D2-4B2F-98D1-8E857919AEEB}
