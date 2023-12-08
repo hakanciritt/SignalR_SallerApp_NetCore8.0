@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalR_App.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5e69009ccb9ff91486818807685a480d8a5a153")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignalR_App.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignalR_App.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

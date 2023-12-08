@@ -1,0 +1,12 @@
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\bin\Debug\net8.0\SignalR_App.Application.deps.json
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\bin\Debug\net8.0\SignalR_App.Application.dll
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\bin\Debug\net8.0\SignalR_App.Application.pdb
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.AssemblyInfoInputs.cache
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.AssemblyInfo.cs
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.csproj.CoreCompileInputs.cache
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.sourcelink.json
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.dll
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\refint\SignalR_App.Application.dll
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.pdb
+D:\Projects\SignalR_SatisApp\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\ref\SignalR_App.Application.dll

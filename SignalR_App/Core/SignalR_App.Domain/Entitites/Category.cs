@@ -6,7 +6,7 @@ namespace SignalR_App.Domain.Entitites
     [Table("Categories")]
     public class Category : BaseEntity
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public Status Status { get; set; }
         public int? MetaId { get; set; }
         public Meta Meta { get; set; }
