@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <Folder Include="Dto\" />
-    <Folder Include="Repositories\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Services\Concretes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastracture\SignalR_App.Persistence\SignalR_App.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

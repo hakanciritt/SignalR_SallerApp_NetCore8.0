@@ -1553,6 +1553,19 @@
           }
         }
       },
+      "SignalR_App.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SignalR_App.Persistence": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SignalR_App.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SignalR_App.Application.dll": {}
+        }
+      },
       "SignalR_App.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4411,6 +4424,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "SignalR_App.Application/1.0.0": {
+      "type": "project",
+      "path": "../../Core/SignalR_App.Application/SignalR_App.Application.csproj",
+      "msbuildProject": "../../Core/SignalR_App.Application/SignalR_App.Application.csproj"
+    },
     "SignalR_App.Domain/1.0.0": {
       "type": "project",
       "path": "../../Core/SignalR_App.Domain/SignalR_App.Domain.csproj",
@@ -4425,6 +4443,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
+      "SignalR_App.Application >= 1.0.0",
       "SignalR_App.Persistence >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -4456,6 +4475,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj": {
+              "projectPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj"
+            },
             "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj": {
               "projectPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj"
             }

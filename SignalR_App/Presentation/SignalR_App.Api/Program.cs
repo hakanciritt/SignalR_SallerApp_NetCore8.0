@@ -1,3 +1,4 @@
+using SignalR_App.Application;
 using SignalR_App.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddPersistenceServiceRegistration(builder.Configuration);
+builder.Services.AddApplicationServiceRegistration();
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
