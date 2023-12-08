@@ -1,9 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace SignalR_App.Domain.Entitites
+﻿namespace SignalR_App.Application.Dtos.TextContentDtos
 {
-    [Table("TextContents")]
-    public class TextContent : BaseFullEntity
+    public class TextContentDto : BaseEntityDto
     {
         public string? Title { get; set; }
         public string? ImageUrl { get; set; }
@@ -11,7 +8,7 @@ namespace SignalR_App.Domain.Entitites
         public string? Description { get; set; }
         public string? ButtonCallToAction { get; set; }
         public string? ButtonName { get; set; }
-        public int? MetaId{ get; set; }
-        public Meta Meta { get; set; }
+        public int? MetaId { get; set; }
+        public MetaDto.MetaDto Meta { get; set; }
     }
 }
