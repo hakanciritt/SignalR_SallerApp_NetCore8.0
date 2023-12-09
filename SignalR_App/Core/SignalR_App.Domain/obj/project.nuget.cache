@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s9N26x5kjve8kC5sIyMfluFSP/nxWIuFV22yTssBpSkyi/Fv+U4gqLSqvK+VzwaY1OmslmEQJj4f+3O3W2C6bQ==",
+  "dgSpecHash": "DLHqw8BnwOoGnkkWbhRGnfq9cMOB3Cshuwn/ePXLBwBHxohAzjC8+oyzvw3WrWUmNP/UkXEgEb1ncwvESASFCA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Domain\\SignalR_App.Domain.csproj",
+  "projectFilePath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Domain\\SignalR_App.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

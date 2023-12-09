@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a8ji/We6iZsYyhGQSMDjCHy82cNxGyJyPZes2nSY79M8RgQh8zOjCwAFeUWyEDkgB3MjOeZIux+WoDXta835uA==",
+  "dgSpecHash": "7BsizESdHng54X//ii1B7jRBfVla53wPpsCkMMmG1exydIt33i/tC8vBYhwYJRjscmGVq5EhxQn/b7MPu8L29A==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
+  "projectFilePath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hakan\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

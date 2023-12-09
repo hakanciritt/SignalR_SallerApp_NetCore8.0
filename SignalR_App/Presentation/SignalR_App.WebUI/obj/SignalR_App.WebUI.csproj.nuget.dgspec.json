@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj": {}
+    "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj": {
+    "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj",
+        "projectUniqueName": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj",
         "projectName": "SignalR_App.WebUI",
-        "projectPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj",
+        "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj",
         "packagesPath": "C:\\Users\\hakan\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Presentation\\SignalR_App.WebUI\\obj\\",
+        "outputPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hakan\\AppData\\Roaming\\NuGet\\NuGet.Config",

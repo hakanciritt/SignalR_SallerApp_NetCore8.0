@@ -2760,11 +2760,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
+      "projectUniqueName": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
       "projectName": "SignalR_App.Application",
-      "projectPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
+      "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
       "packagesPath": "C:\\Users\\hakan\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\obj\\",
+      "outputPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hakan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2781,8 +2781,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj": {
-              "projectPath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj"
+            "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj": {
+              "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj"
             }
           }
         }
