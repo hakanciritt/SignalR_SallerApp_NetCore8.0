@@ -2,6 +2,7 @@
 {
     public class TextContentDto : BaseEntityDto
     {
+        public string Key { get; set; }
         public string? Title { get; set; }
         public string? ImageUrl { get; set; }
         public string? ShortDescription { get; set; }
