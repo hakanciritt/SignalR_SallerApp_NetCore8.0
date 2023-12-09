@@ -26,7 +26,6 @@ namespace SignalR_App.Application.Services.Concretes
 
             return DataResult<CategoryDto>.Successed(ObjectMapper.Map.Map<CategoryDto>(result));
         }
-
         public async Task<Result> Create(CategoryDto booking)
         {
             var mapping = ObjectMapper.Map.Map<Category>(booking);

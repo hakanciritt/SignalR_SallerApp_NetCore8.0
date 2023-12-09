@@ -10,5 +10,6 @@ namespace SignalR_App.Domain.Entitites
         public Status Status { get; set; }
         public int? MetaId { get; set; }
         public Meta Meta { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

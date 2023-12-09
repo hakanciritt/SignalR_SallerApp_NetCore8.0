@@ -6,7 +6,7 @@ namespace SignalR_App.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TextContentsController : ControllerBase
+    public class TextContentsController : ApiControllerBase
     {
         private readonly ITextContentService _textContentService;
 
@@ -33,16 +33,14 @@ namespace SignalR_App.Api.Controllers
         public async Task<IActionResult> Update(TextContentDto textContent)
         {
             var result = await _textContentService.Update(textContent);
-            if (result.Success) return Ok(result);
-            return BadRequest(result);
+            return ActionResult(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(TextContentDto textContent)
         {
             var result = await _textContentService.Create(textContent);
-            if (result.Success) return Ok(result);
-            return BadRequest(result);
+            return ActionResult(result);
         }
     }
 }
