@@ -14,6 +14,6 @@ namespace SignalR_App.Application.Dtos.ProductDtos
         public MetaDto.MetaDto Meta { get; set; }
 
         public int? CategoryId { get; set; }
-        public Category Category { get; set; }
+        public CategoryDto.CategoryDto Category { get; set; }
     }
 }

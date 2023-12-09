@@ -8,7 +8,7 @@ namespace SignalR_App.Application.Mappings
     {
         public ProductMap()
         {
-            CreateMap<Product, ProductDto>();   
+            CreateMap<Product, ProductDto>().ReverseMap();   
         }
     }
 }

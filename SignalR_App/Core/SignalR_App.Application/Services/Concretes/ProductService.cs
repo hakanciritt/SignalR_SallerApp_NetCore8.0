@@ -16,12 +16,15 @@ namespace SignalR_App.Application.Services.Concretes
         public async Task<List<ProductDto>> GetAll()
         {
             var result = await _productRepository.GetAll()
+                .Include(c => c.Category)
                 .Where(c => c.Status == Domain.Enums.Status.Active).ToListAsync();
             return ObjectMapper.Map.Map<List<ProductDto>>(result);
         }
         public async Task<DataResult<ProductDto>> GetById(int id)
         {
-            var result = await _productRepository.GetAll().Include(c => c.Meta)
+            var result = await _productRepository.GetAll()
+                .Include(c => c.Meta)
+                .Include(c => c.Category)
                 .FirstOrDefaultAsync(c => c.Id == id);
             if (result is null) return DataResult<ProductDto>.Failed("Ürün bulunamadı");
 
@@ -42,7 +45,11 @@ namespace SignalR_App.Application.Services.Concretes
         }
         public async Task<Result> Update(ProductDto product)
         {
-            var result = await _productRepository.GetAll().FirstOrDefaultAsync(c => c.Id == product.Id);
+            var result = await _productRepository.GetAll()
+                .Include(c => c.Category)
+                .Include(c => c.Meta)
+                .FirstOrDefaultAsync(c => c.Id == product.Id);
+
             ObjectMapper.Map.Map(product, result);
             await _productRepository.SaveChangesAsync();
 
