@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "poaR+0T4j7eReO8YkQ456j/ZXpGsbU86zz4EmAs7MM1HqYOuo551zjIotqg/Mufy6biZZjUsMe/kTrrJLDeyVA==",
+  "dgSpecHash": "a8ji/We6iZsYyhGQSMDjCHy82cNxGyJyPZes2nSY79M8RgQh8zOjCwAFeUWyEDkgB3MjOeZIux+WoDXta835uA==",
   "success": true,
   "projectFilePath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hakan\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\hakan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\hakan\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\hakan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
