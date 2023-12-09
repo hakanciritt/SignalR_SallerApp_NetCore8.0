@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SignalR_App.Application.Dtos.MetaDto;
+using SignalR_App.Domain.Entitites;
 
 namespace SignalR_App.Application.Mappings
 {
@@ -7,7 +8,7 @@ namespace SignalR_App.Application.Mappings
     {
         public MetaMap()
         {
-            CreateMap<MetaMap, MetaDto>().ReverseMap();
+            CreateMap<Meta, MetaDto>().ReverseMap();
         }
     }
 }

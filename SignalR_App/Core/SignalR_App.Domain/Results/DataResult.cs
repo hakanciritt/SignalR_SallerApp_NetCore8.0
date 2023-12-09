@@ -3,7 +3,7 @@
     public class DataResult<TData> : BaseResult
     {
         public TData Data { get; set; }
-        public static DataResult<TData> Successed(TData data,string message)
+        public static DataResult<TData> Successed(TData data, string message = "")
         {
 
             return new DataResult<TData>()
@@ -13,7 +13,7 @@
                 Data = data
             };
         }
-        public static DataResult<TData> Failed(string message)
+        public static DataResult<TData> Failed(string message = "")
         {
 
             return new DataResult<TData>()

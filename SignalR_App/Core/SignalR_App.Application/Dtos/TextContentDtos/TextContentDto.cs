@@ -1,6 +1,8 @@
-﻿namespace SignalR_App.Application.Dtos.TextContentDtos
+﻿using SignalR_App.Domain.Entitites;
+
+namespace SignalR_App.Application.Dtos.TextContentDtos
 {
-    public class TextContentDto : BaseEntityDto
+    public class TextContentDto : BaseFullEntity
     {
         public string Key { get; set; }
         public string? Title { get; set; }

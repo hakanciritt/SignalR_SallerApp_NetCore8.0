@@ -25,6 +25,8 @@ namespace SignalR_App.Application.Services.Concretes
         public async Task<Result> Delete(int id)
         {
             await _textContentRepository.DeleteAsync(id);
+            await _textContentRepository.SaveChangesAsync();
+
             return Result.Successed();
         }
 
@@ -33,8 +35,17 @@ namespace SignalR_App.Application.Services.Concretes
             var data = await _textContentRepository.GetAll().Include(d => d.Meta)
                 .FirstOrDefaultAsync(c => c.Id == textContent.Id);
             ObjectMapper.Map.Map(textContent, data);
+            await _textContentRepository.SaveChangesAsync();
+
             return Result.Successed();
         }
+        public async Task<Result> Create(TextContentDto textContent)
+        {
+            var mapping = ObjectMapper.Map.Map<TextContent>(textContent);
 
+            var data = await _textContentRepository.InsertAsync(mapping);
+            await _textContentRepository.SaveChangesAsync();
+            return data != null ? Result.Successed() : Result.Failed("Bir hata meydana geldi");
+        }
     }
 }

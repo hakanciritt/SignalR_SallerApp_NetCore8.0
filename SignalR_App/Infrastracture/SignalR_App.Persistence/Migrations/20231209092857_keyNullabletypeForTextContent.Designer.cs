@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SignalR_App.Persistence.EntityFramework;
 
@@ -11,9 +12,11 @@ using SignalR_App.Persistence.EntityFramework;
 namespace SignalR_App.Persistence.Migrations
 {
     [DbContext(typeof(SignalRDbContext))]
-    partial class SignalRDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231209092857_keyNullabletypeForTextContent")]
+    partial class keyNullabletypeForTextContent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

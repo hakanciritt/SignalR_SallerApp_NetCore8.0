@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignalR_App.Application.Dtos.BookingDto
+﻿namespace SignalR_App.Application.Dtos.BookingDto
 {
     public class BookingDto : BaseEntityDto
     {

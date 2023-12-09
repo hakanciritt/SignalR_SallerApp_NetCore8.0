@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application.Dtos.TextContentDtos;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
@@ -21,10 +22,27 @@ namespace SignalR_App.Api.Controllers
             return Ok(result);
         }
 
+        [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _textContentService.Delete(id);
             return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(TextContentDto textContent)
+        {
+            var result = await _textContentService.Update(textContent);
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(TextContentDto textContent)
+        {
+            var result = await _textContentService.Create(textContent);
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
         }
     }
 }
