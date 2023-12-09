@@ -5,6 +5,7 @@ namespace SignalR_App.Domain.Entitites
     [Table("TextContents")]
     public class TextContent : BaseFullEntity
     {
+        public string Key { get; set; }
         public string? Title { get; set; }
         public string? ImageUrl { get; set; }
         public string? ShortDescription { get; set; }
