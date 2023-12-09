@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "poaR+0T4j7eReO8YkQ456j/ZXpGsbU86zz4EmAs7MM1HqYOuo551zjIotqg/Mufy6biZZjUsMe/kTrrJLDeyVA==",
+  "dgSpecHash": "TbLtX9m1yIDDjnuth4LXGnnB9bXiXvvhNoh6Jm6GfLh/K0tYxyxINU3rQpOXsep5c5DBRIsqLLaPuSKyheSjZg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\SignalR_SatisApp\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
+  "projectFilePath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Application\\SignalR_App.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hakan\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hakan\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
