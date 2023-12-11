@@ -1,0 +1,88 @@
+﻿@using SignalR_App.WebUI.Areas.Admin.Views.Shared.Components.Header
+@using SignalR_App.WebUI.Areas.Admin.Views.Shared.Components.Sidebar
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Tables</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Basic Table</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            This is the basic table view of the ready dashboard :
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        $('#displayNotif').on('click', function () {
+            var placementFrom = $('#notify_placement_from option:selected').val();
+            var placementAlign = $('#notify_placement_align option:selected').val();
+            var state = $('#notify_state option:selected').val();
+            var style = $('#notify_style option:selected').val();
+            var content = {};
+
+            content.message = 'Turning standard Bootstrap alerts into "notify" like notifications';
+            content.title = 'Bootstrap notify';
+            if (style == "withicon") {
+                content.icon = 'la la-bell';
+            } else {
+                content.icon = 'none';
+            }
+            content.url = 'index.html';
+            content.target = '_blank';
+
+            $.notify(content, {
+                type: state,
+                placement: {
+                    from: placementFrom,
+                    align: placementAlign
+                },
+                time: 1000,
+            });
+        });
+    </script>
+}

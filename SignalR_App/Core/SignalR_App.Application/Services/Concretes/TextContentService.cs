@@ -8,14 +8,10 @@ using SignalR_App.Domain.Result;
 
 namespace SignalR_App.Application.Services.Concretes
 {
-    public class TextContentService : ITextContentService
+    public class TextContentService(IRepository<TextContent, int> textContentRepository) : ITextContentService
     {
-        private readonly IRepository<TextContent, int> _textContentRepository;
+        private readonly IRepository<TextContent, int> _textContentRepository = textContentRepository;
 
-        public TextContentService(IRepository<TextContent, int> textContentRepository)
-        {
-            _textContentRepository = textContentRepository;
-        }
         public async Task<TextContentDto> GetTextContentByKey(string key)
         {
             var result = await _textContentRepository.GetAll()

@@ -64,6 +64,7 @@ namespace SignalR_App.Persistence.EntityFramework
                     {
                         fullEntityResult.IsDeleted = true;
                         fullEntityResult.DelationTime = DateTime.Now;
+                        item.State = EntityState.Modified;
                     }
                 }
             }
