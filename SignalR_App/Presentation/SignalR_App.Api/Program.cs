@@ -1,13 +1,18 @@
 using SignalR_App.Application;
 using SignalR_App.Persistence;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 builder.Services.AddPersistenceServiceRegistration(builder.Configuration);
 builder.Services.AddApplicationServiceRegistration();
+
+
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

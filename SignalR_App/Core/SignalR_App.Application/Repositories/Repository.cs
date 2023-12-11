@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SignalR_App.Domain.Result;
 using SignalR_App.Persistence.EntityFramework;
 
 namespace SignalR_App.Application.Repositories
@@ -54,8 +55,8 @@ namespace SignalR_App.Application.Repositories
 
         public async Task<TEntity> InsertAsync(TEntity entity)
         {
-            await _dbSet.AddAsync(entity);
-            return entity;
+            var result = await _dbSet.AddAsync(entity);
+            return result.Entity;
         }
 
         public void SaveChanges()

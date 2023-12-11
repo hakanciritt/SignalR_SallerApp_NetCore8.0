@@ -1,0 +1,83 @@
+﻿@using SignalR_App.WebUI.Areas.Admin.Models.Categories
+
+@model List<CategoryViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Kategoriler</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Basic Table</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Kategori Adı</th>
+                                    <th scope="col">Durum</th>
+                                    <th scope="col">Oluşturulma Tarihi</th>
+                                    <th scope="col">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Status</td>
+                                        <td>@item.CreatedDate.ToShortDateString()</td>
+                                        <td>
+                                            <a href="#" class="btn btn-outline-danger">Sil</a>
+                                            <a href="#" class="btn btn-outline-success">Güncelle</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        $('#displayNotif').on('click', function () {
+            var placementFrom = $('#notify_placement_from option:selected').val();
+            var placementAlign = $('#notify_placement_align option:selected').val();
+            var state = $('#notify_state option:selected').val();
+            var style = $('#notify_style option:selected').val();
+            var content = {};
+
+            content.message = 'Turning standard Bootstrap alerts into "notify" like notifications';
+            content.title = 'Bootstrap notify';
+            if (style == "withicon") {
+                content.icon = 'la la-bell';
+            } else {
+                content.icon = 'none';
+            }
+            content.url = 'index.html';
+            content.target = '_blank';
+
+            $.notify(content, {
+                type: state,
+                placement: {
+                    from: placementFrom,
+                    align: placementAlign
+                },
+                time: 1000,
+            });
+        });
+    </script>
+}

@@ -6,4 +6,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Ready-Bootstrap-Dashboard-master\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\SignalR_App.Application\SignalR_App.Application.csproj" />
+    <ProjectReference Include="..\..\Core\SignalR_App.Domain\SignalR_App.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using SignalR_App.Application.Repositories;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.Services.Concretes;
@@ -10,7 +9,7 @@ namespace SignalR_App.Application
     {
         public static void AddApplicationServiceRegistration(this IServiceCollection services)
         {
-            services.TryAddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+            services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
 
             services.AddScoped<IBookingService,BookingService>();
             services.AddScoped<ICategoryService,CategoryService>();

@@ -153,6 +153,9 @@ namespace SignalR_App.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -178,6 +181,8 @@ namespace SignalR_App.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("MetaId");
 
@@ -278,8 +283,14 @@ namespace SignalR_App.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Key")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("LastModificationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("MetaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
@@ -288,6 +299,8 @@ namespace SignalR_App.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MetaId");
 
                     b.ToTable("TextContents");
                 });
@@ -303,11 +316,31 @@ namespace SignalR_App.Persistence.Migrations
 
             modelBuilder.Entity("SignalR_App.Domain.Entitites.Product", b =>
                 {
+                    b.HasOne("SignalR_App.Domain.Entitites.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("SignalR_App.Domain.Entitites.Meta", "Meta")
+                        .WithMany()
+                        .HasForeignKey("MetaId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Meta");
+                });
+
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.TextContent", b =>
+                {
                     b.HasOne("SignalR_App.Domain.Entitites.Meta", "Meta")
                         .WithMany()
                         .HasForeignKey("MetaId");
 
                     b.Navigation("Meta");
+                });
+
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
