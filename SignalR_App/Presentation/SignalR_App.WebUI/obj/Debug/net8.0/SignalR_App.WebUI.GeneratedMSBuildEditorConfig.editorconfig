@@ -26,6 +26,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Projects/SignalR_SallerApp_NetCore8.0/SignalR_App/Presentation/SignalR_App.WebUI/Areas/Admin/Views/Category/CreateOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlT3JVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/SignalR_SallerApp_NetCore8.0/SignalR_App/Presentation/SignalR_App.WebUI/Areas/Admin/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/SignalR_SallerApp_NetCore8.0/SignalR_App/Presentation/SignalR_App.WebUI/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -17,7 +17,7 @@ namespace SignalR_App.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("detail")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
             var result = await _categoryService.GetById(id);

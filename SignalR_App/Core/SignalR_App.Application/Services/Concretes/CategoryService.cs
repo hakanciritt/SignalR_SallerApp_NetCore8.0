@@ -21,7 +21,8 @@ namespace SignalR_App.Application.Services.Concretes
         }
         public async Task<DataResult<CategoryDto>> GetById(int id)
         {
-            var result = await _categoryRepository.GetAll().FirstOrDefaultAsync(c => c.Id == id);
+            var result = await _categoryRepository.GetAll()
+                .Include(d => d.Meta).FirstOrDefaultAsync(c => c.Id == id);
             if (result is null) return DataResult<CategoryDto>.Failed("Booking bulunamadı");
 
             return DataResult<CategoryDto>.Successed(ObjectMapper.Map.Map<CategoryDto>(result));
@@ -41,7 +42,8 @@ namespace SignalR_App.Application.Services.Concretes
         }
         public async Task<Result> Update(CategoryDto booking)
         {
-            var result = await _categoryRepository.GetAll().FirstOrDefaultAsync(c => c.Id == booking.Id);
+            var result = await _categoryRepository.GetAll()
+                .Include(d => d.Meta).FirstOrDefaultAsync(c => c.Id == booking.Id);
             ObjectMapper.Map.Map(booking, result);
             await _categoryRepository.SaveChangesAsync();
 
