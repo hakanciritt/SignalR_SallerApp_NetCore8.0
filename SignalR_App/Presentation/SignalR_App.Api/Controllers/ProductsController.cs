@@ -18,7 +18,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
             var result = await _productService.GetById(id);
             return ActionResult(result);

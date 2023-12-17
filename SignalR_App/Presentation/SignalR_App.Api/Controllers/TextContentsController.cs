@@ -15,14 +15,27 @@ namespace SignalR_App.Api.Controllers
             _textContentService = textContentService;
         }
 
-        [HttpGet]
+        [HttpGet("about")]
         public async Task<IActionResult> GetAbout()
         {
             var result = await _textContentService.GetTextContentByKey("About");
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Get([FromRoute] int id)
+        {
+            var result = await _textContentService.GetById(id);
+            return Ok(result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _textContentService.GetAll();
+            return Ok(result);
+        }
+
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _textContentService.Delete(id);

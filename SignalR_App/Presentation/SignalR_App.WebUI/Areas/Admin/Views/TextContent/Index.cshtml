@@ -1,0 +1,54 @@
+﻿@using SignalR_App.WebUI.Areas.Admin.Models.TextContents
+
+@model List<TextContentViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Scripts {
+
+    <script src="~/js/admin/textcontents/Index.js" asp-append-version="true"></script>
+
+}
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Ürünler</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-right mb-3">
+                            <a class="btn btn-outline-primary" asp-area="Admin" asp-controller="TextContent" asp-action="CreateOrUpdate">Ekle</a>
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Oluşturulma Tarihi</th>
+                                    <th scope="col">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Key</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.CreatedDate.ToShortDateString()</td>
+                                        <td>
+                                            <a href="#" class="btn btn-outline-danger" data-id="@item.Id">Sil</a>
+                                            <a asp-area="Admin" asp-controller="TextContent" asp-action="CreateOrUpdate" asp-route-textContentId="@item.Id" class="btn btn-outline-success">Güncelle</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

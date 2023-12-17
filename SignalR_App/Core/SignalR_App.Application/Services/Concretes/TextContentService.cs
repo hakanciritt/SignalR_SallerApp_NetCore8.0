@@ -12,6 +12,12 @@ namespace SignalR_App.Application.Services.Concretes
     {
         private readonly IRepository<TextContent, int> _textContentRepository = textContentRepository;
 
+        public async Task<List<TextContentDto>> GetAll()
+        {
+            var result = await _textContentRepository.GetAll()
+                .Include(d => d.Meta).ToListAsync();
+            return ObjectMapper.Map.Map<List<TextContentDto>>(result);
+        }
         public async Task<TextContentDto> GetTextContentByKey(string key)
         {
             var result = await _textContentRepository.GetAll()
@@ -42,6 +48,13 @@ namespace SignalR_App.Application.Services.Concretes
             var data = await _textContentRepository.InsertAsync(mapping);
             await _textContentRepository.SaveChangesAsync();
             return data != null ? Result.Successed() : Result.Failed("Bir hata meydana geldi");
+        }
+
+        public async Task<TextContentDto> GetById(int id)
+        {
+            var result = await _textContentRepository.GetAll()
+                .Include(d => d.Meta).FirstOrDefaultAsync(c => c.Id == id);
+            return ObjectMapper.Map.Map<TextContentDto>(result);
         }
     }
 }
