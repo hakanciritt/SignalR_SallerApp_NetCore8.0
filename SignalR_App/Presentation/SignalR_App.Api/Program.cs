@@ -1,18 +1,25 @@
 using SignalR_App.Application;
 using SignalR_App.Persistence;
+using SignalR_App.SignalR;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.ConfigureHttpJsonOptions(options =>
+builder.Services.AddCors(options =>
 {
-    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyHeader().AllowAnyMethod()
+        .SetIsOriginAllowed(host => true)
+        .AllowCredentials();
+    });
 });
+
+builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddPersistenceServiceRegistration(builder.Configuration);
 builder.Services.AddApplicationServiceRegistration();
-
+builder.Services.AddSignalRServiceRegistration();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -34,10 +41,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHubs();
 
 app.Run();

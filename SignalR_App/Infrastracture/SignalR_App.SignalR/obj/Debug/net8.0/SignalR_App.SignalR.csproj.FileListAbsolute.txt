@@ -1,0 +1,13 @@
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\bin\Debug\net8.0\SignalR_App.SignalR.deps.json
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\bin\Debug\net8.0\SignalR_App.SignalR.dll
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\bin\Debug\net8.0\SignalR_App.SignalR.pdb
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.csproj.AssemblyReference.cache
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.AssemblyInfoInputs.cache
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.AssemblyInfo.cs
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.csproj.CoreCompileInputs.cache
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.sourcelink.json
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.dll
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\refint\SignalR_App.SignalR.dll
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\SignalR_App.SignalR.pdb
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Infrastracture\SignalR_App.SignalR\obj\Debug\net8.0\ref\SignalR_App.SignalR.dll

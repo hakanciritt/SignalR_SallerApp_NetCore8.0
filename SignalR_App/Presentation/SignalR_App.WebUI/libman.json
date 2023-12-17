@@ -16,6 +16,13 @@
         "sweetalert2.min.js",
         "sweetalert2.min.css"
       ]
+    },
+    {
+      "library": "microsoft-signalr@8.0.0",
+      "destination": "wwwroot/js/microsoft-signalr/",
+      "files": [
+        "signalr.min.js"
+      ]
     }
   ]
 }

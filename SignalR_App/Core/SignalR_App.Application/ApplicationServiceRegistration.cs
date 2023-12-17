@@ -11,13 +11,14 @@ namespace SignalR_App.Application
         {
             services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
 
-            services.AddScoped<IBookingService,BookingService>();
-            services.AddScoped<ICategoryService,CategoryService>();
-            services.AddScoped<IDiscountService,DiscountService>();
-            services.AddScoped<IProductService,ProductService>();
-            services.AddScoped<ISettingService,SettingService>();
-            services.AddScoped<ITestimonailService,TestimonailService>();
-            services.AddScoped<ITextContentService,TextContentService>();
+            services.AddScoped<IBookingService, BookingService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IDiscountService, DiscountService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ISettingService, SettingService>();
+            services.AddScoped<ITestimonailService, TestimonailService>();
+            services.AddScoped<ITextContentService, TextContentService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
     }
 }

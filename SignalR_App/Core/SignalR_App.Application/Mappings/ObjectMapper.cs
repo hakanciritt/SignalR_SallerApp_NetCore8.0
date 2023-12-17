@@ -18,7 +18,9 @@ namespace SignalR_App.Application.Mappings
                     new TestimonialMap(),
                     new TextContentMap(),
                     new BaseEntityMap(),
-                    new BaseFullEntityMap()
+                    new BaseFullEntityMap(),
+                    new OrderItemMap(),
+                    new OrderMap(),
                 });
             });
 

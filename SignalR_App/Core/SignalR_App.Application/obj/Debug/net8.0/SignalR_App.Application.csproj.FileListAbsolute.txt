@@ -34,3 +34,5 @@ D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Core\SignalR_App.Applicatio
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\refint\SignalR_App.Application.dll
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\SignalR_App.Application.pdb
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Core\SignalR_App.Application\obj\Debug\net8.0\ref\SignalR_App.Application.dll
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Core\SignalR_App.Application\bin\Debug\net8.0\SignalR_App.SignalR.dll
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Core\SignalR_App.Application\bin\Debug\net8.0\SignalR_App.SignalR.pdb

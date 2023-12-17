@@ -18,6 +18,8 @@ namespace SignalR_App.Persistence.EntityFramework
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<TextContent> TextContents { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

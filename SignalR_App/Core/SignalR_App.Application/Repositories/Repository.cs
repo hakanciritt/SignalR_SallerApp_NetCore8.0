@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SignalR_App.Domain.Result;
 using SignalR_App.Persistence.EntityFramework;
 
 namespace SignalR_App.Application.Repositories
@@ -15,61 +14,61 @@ namespace SignalR_App.Application.Repositories
         }
         public SignalRDbContext GetDbContext() => _dbContext;
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             _dbSet.Remove(entity);
         }
 
-        public async Task DeleteAsync(TPrimaryKey id)
+        public virtual async Task DeleteAsync(TPrimaryKey id)
         {
             var entity = await GetAsync(id);
             if (entity != null) _dbSet.Remove(entity);
         }
 
-        public TEntity Get(TPrimaryKey id)
+        public virtual TEntity Get(TPrimaryKey id)
         {
             return _dbSet.Find(id);
         }
 
-        public IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
             return _dbSet.AsQueryable();
         }
 
-        public async Task<TEntity> GetAsync(TPrimaryKey id)
+        public virtual async Task<TEntity> GetAsync(TPrimaryKey id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public void Insert(TEntity entity)
+        public virtual void Insert(TEntity entity)
         {
             _dbSet.Add(entity);
         }
 
-        public async Task<TEntity> InsertAndGetAsync(TEntity entity)
+        public virtual async Task<TEntity> InsertAndGetAsync(TEntity entity)
         {
             await _dbSet.AddAsync(entity);
             await _dbContext.SaveChangesAsync(); // Veritabanına hemen kaydet
             return entity;
         }
 
-        public async Task<TEntity> InsertAsync(TEntity entity)
+        public virtual async Task<TEntity> InsertAsync(TEntity entity)
         {
             var result = await _dbSet.AddAsync(entity);
             return result.Entity;
         }
 
-        public void SaveChanges()
+        public virtual void SaveChanges()
         {
             _dbContext.SaveChanges();
         }
 
-        public async Task SaveChangesAsync()
+        public virtual async Task SaveChangesAsync()
         {
             await _dbContext.SaveChangesAsync();
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             _dbSet.Update(entity);
         }

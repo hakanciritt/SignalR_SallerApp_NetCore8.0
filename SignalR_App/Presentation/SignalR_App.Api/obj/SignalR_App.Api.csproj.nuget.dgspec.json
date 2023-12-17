@@ -30,6 +30,9 @@
             "projectReferences": {
               "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj": {
                 "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj"
+              },
+              "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj": {
+                "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj"
               }
             }
           }
@@ -51,6 +54,10 @@
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             }
           },
           "imports": [
@@ -209,6 +216,70 @@
         }
       }
     },
+    "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj",
+        "projectName": "SignalR_App.SignalR",
+        "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj",
+        "packagesPath": "C:\\Users\\hakan\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hakan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.Api\\SignalR_App.Api.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -238,6 +309,9 @@
               },
               "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj": {
                 "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.Persistence\\SignalR_App.Persistence.csproj"
+              },
+              "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj": {
+                "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Infrastracture\\SignalR_App.SignalR\\SignalR_App.SignalR.csproj"
               }
             }
           }

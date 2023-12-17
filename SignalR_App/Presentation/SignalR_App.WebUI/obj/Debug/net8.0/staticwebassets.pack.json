@@ -321,6 +321,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\admin\\Layout.js",
+      "PackagePath": "staticwebassets\\js\\admin\\Layout.js"
+    },
+    {
       "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\admin\\products\\AddOrUpdate.js",
       "PackagePath": "staticwebassets\\js\\admin\\products\\AddOrUpdate.js"
     },
@@ -339,6 +343,10 @@
     {
       "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js",
       "PackagePath": "staticwebassets\\js\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js"
+    },
+    {
+      "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\microsoft-signalr\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\microsoft-signalr\\signalr.min.js"
     },
     {
       "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\site.js",
