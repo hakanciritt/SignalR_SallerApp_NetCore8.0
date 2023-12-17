@@ -8,7 +8,7 @@ namespace SignalR_App.Application.Dtos.CategoryDto
         public string? Name { get; set; }
         public Status Status { get; set; }
         public int? MetaId { get; set; }
-        public MetaDto.MetaDto Meta { get; set; }
+        public MetaDto.MetaDto Meta { get; set; } = new();
 
         public ICollection<ProductDto> Products { get; set; } = new List<ProductDto>();
     }

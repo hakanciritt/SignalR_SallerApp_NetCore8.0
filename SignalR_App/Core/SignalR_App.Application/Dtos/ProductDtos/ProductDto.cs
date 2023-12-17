@@ -1,5 +1,4 @@
-﻿using SignalR_App.Domain.Entitites;
-using SignalR_App.Domain.Enums;
+﻿using SignalR_App.Domain.Enums;
 
 namespace SignalR_App.Application.Dtos.ProductDtos
 {
@@ -11,9 +10,9 @@ namespace SignalR_App.Application.Dtos.ProductDtos
         public string? ImageUrl { get; set; }
         public Status Status { get; set; }
         public int? MetaId { get; set; }
-        public MetaDto.MetaDto Meta { get; set; }
+        public MetaDto.MetaDto Meta { get; set; } = new();
 
         public int? CategoryId { get; set; }
-        public CategoryDto.CategoryDto Category { get; set; }
+        public CategoryDto.CategoryDto? Category { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace SignalR_App.Application.Services.Concretes
             var mapping = ObjectMapper.Map.Map<Product>(product);
             var result = await _productRepository.InsertAsync(mapping);
             await _productRepository.SaveChangesAsync();
-            return result != null ? Result.Successed() : Result.Failed();
+            return result != null ? Result.Successed("Ürün başarıyla kaydedildi.") : Result.Failed();
         }
         public async Task<Result> Delete(int id)
         {

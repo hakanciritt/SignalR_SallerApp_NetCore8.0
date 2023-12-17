@@ -7,8 +7,7 @@ using System.Text.Json;
 
 namespace SignalR_App.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class CategoryController(IHttpClientFactory httpClientFactory) : Controller
+    public class CategoryController(IHttpClientFactory httpClientFactory) : AdminBaseController
     {
         private readonly HttpClient _httpClient = httpClientFactory.CreateClient("Categories");
 
@@ -33,18 +32,34 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             var requestModel = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
             HttpResponseMessage message;
 
-            if (model.Id == 0) message = await _httpClient.PostAsync("Categories/Create", requestModel, HttpContext.RequestAborted);
-            else message = await _httpClient.PostAsync("Categories/Update", requestModel, HttpContext.RequestAborted);
+            if (model.Id == 0) message = await _httpClient.PostAsync("Categories", requestModel, HttpContext.RequestAborted);
+            else message = await _httpClient.PutAsync("Categories", requestModel, HttpContext.RequestAborted);
 
-            if (!message.IsSuccessStatusCode) return View();
+            if (!message.IsSuccessStatusCode) return View(model);
 
             var content = JsonSerializer.Deserialize<Result>(await message.Content.ReadAsStringAsync());
             if (!content.Success)
             {
                 TempData["ErrorMessage"] = content.Message;
+                return View(model);
+            }
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int categoryId)
+        {
+            var request = await _httpClient.DeleteAsync($"Categories/{categoryId}", HttpContext.RequestAborted);
+            if (!request.IsSuccessStatusCode) return RedirectToAction("Index");
+
+            var response = JsonSerializer.Deserialize<Result>(await request.Content.ReadAsStringAsync());
+            if (!response.Success)
+            {
+                TempData["ErrorMessage"] = response.Message;
                 return RedirectToAction("Index");
             }
-            return View();
+
+            return RedirectToAction("Index");
+
         }
     }
 }

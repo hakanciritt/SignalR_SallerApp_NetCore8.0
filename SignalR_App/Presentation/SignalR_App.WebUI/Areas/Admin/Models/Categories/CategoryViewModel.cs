@@ -1,4 +1,5 @@
-﻿using SignalR_App.Domain.Enums;
+﻿using SignalR_App.Application.Dtos.ProductDtos;
+using SignalR_App.Domain.Enums;
 
 namespace SignalR_App.WebUI.Areas.Admin.Models.Categories
 {
@@ -13,6 +14,6 @@ namespace SignalR_App.WebUI.Areas.Admin.Models.Categories
         public int? MetaId { get; set; }
         public MetaViewModel Meta { get; set; }
 
-        //public ICollection<ProductDto> Products { get; set; } = new List<ProductDto>();
+        public ICollection<ProductDto> Products { get; set; } = new List<ProductDto>();
     }
 }

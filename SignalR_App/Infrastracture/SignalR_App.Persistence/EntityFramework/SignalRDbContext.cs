@@ -49,7 +49,7 @@ namespace SignalR_App.Persistence.EntityFramework
             {
                 if (item.Entity is BaseEntity result)
                 {
-                    if (item.State == EntityState.Added)
+                    if (item.State == EntityState.Added && result.CreatedDate == default)
                     {
                         result.CreatedDate = DateTime.Now;
                     }

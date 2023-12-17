@@ -10,11 +10,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Basic Table</div>
-                    </div>
                     <div class="card-body">
-                        <div class="card-sub">
+                        <div class="text-right mb-3">
+                            <a class="btn btn-outline-primary" asp-area="Admin" asp-controller="Category" asp-action="CreateOrUpdate">Ekle</a>
                         </div>
                         <table class="table mt-3">
                             <thead>
@@ -35,8 +33,8 @@
                                         <td>@item.Status</td>
                                         <td>@item.CreatedDate.ToShortDateString()</td>
                                         <td>
-                                            <a href="#" class="btn btn-outline-danger">Sil</a>
-                                            <a href="#" class="btn btn-outline-success">Güncelle</a>
+                                            <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-categoryId="@item.Id" class="btn btn-outline-danger">Sil</a>
+                                            <a asp-area="Admin" asp-controller="Category" asp-action="CreateOrUpdate" asp-route-categoryId="@item.Id" class="btn btn-outline-success">Güncelle</a>
                                         </td>
                                     </tr>
                                 }

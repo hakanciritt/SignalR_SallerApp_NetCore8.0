@@ -23,13 +23,13 @@ namespace SignalR_App.Application.Services.Concretes
         {
             var result = await _categoryRepository.GetAll()
                 .Include(d => d.Meta).FirstOrDefaultAsync(c => c.Id == id);
-            if (result is null) return DataResult<CategoryDto>.Failed("Booking bulunamadı");
+            if (result is null) return DataResult<CategoryDto>.Failed("Kategori bulunamadı");
 
             return DataResult<CategoryDto>.Successed(ObjectMapper.Map.Map<CategoryDto>(result));
         }
-        public async Task<Result> Create(CategoryDto booking)
+        public async Task<Result> Create(CategoryDto category)
         {
-            var mapping = ObjectMapper.Map.Map<Category>(booking);
+            var mapping = ObjectMapper.Map.Map<Category>(category);
             var result = await _categoryRepository.InsertAsync(mapping);
             await _categoryRepository.SaveChangesAsync();
             return result != null ? Result.Successed() : Result.Failed();
@@ -40,11 +40,11 @@ namespace SignalR_App.Application.Services.Concretes
             await _categoryRepository.SaveChangesAsync();
             return Result.Successed("Başarıyla silindi");
         }
-        public async Task<Result> Update(CategoryDto booking)
+        public async Task<Result> Update(CategoryDto category)
         {
             var result = await _categoryRepository.GetAll()
-                .Include(d => d.Meta).FirstOrDefaultAsync(c => c.Id == booking.Id);
-            ObjectMapper.Map.Map(booking, result);
+                .Include(d => d.Meta).FirstOrDefaultAsync(c => c.Id == category.Id);
+            ObjectMapper.Map.Map(category, result);
             await _categoryRepository.SaveChangesAsync();
 
             return Result.Successed("Başarıyla güncellendi");

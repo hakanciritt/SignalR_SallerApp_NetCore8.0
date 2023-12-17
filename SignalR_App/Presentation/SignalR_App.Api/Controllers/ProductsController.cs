@@ -17,7 +17,7 @@ namespace SignalR_App.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("detail")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
             var result = await _productService.GetById(id);
@@ -31,8 +31,8 @@ namespace SignalR_App.Api.Controllers
             return ActionResult(result);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var result = await _productService.Delete(id);
             return ActionResult(result);

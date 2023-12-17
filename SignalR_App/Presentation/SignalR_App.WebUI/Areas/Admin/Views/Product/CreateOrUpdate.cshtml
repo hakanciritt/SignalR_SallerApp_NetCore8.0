@@ -1,0 +1,86 @@
+﻿@using SignalR_App.Domain.Enums
+@using SignalR_App.WebUI.Areas.Admin.Models.Categories
+@using SignalR_App.WebUI.Areas.Admin.Models.Products
+@model ProductViewModel
+
+@section Scripts {
+    <script src="~/js/admin/products/AddOrUpdate.js" asp-append-version="true"></script>
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Ürün</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="CreateOrUpdate" asp-area="Admin" asp-controller="Product"
+                      method="post" data-ajax-begin="beginRequest" data-ajax-complete="completeRequest"
+                      data-ajax="true" data-ajax-method="post" data-ajax-success="addOrUpdateSuccess"
+                      data-ajax-failure="addOrUpdateSuccess" asp-antiforgery="true">
+                    <input type="hidden" asp-for="Id">
+                    <input type="hidden" asp-for="MetaId">
+                    <input type="hidden" asp-for="Meta.Id">
+                    <input type="hidden" asp-for="Category.Id">
+                    <input type="hidden" asp-for="ImageUrl">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">@(Model.Id == 0 ? "Ekle" : "Güncelle")</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="email">Ürün Adı</label>
+                                <input type="text" required="" class="form-control" asp-for="Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Ürün Açıklaması</label>
+                                <textarea cols="5" required="" rows="4" class="form-control" asp-for="Description"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CategoryId">Kategori</label>
+                                <select required="" asp-items="@(new SelectList((List<CategoryViewModel>)ViewBag.Categories,"Id","Name"))" class="form-control" asp-for="CategoryId">
+                                    <option value="" selected>Seçiniz</option>
+                                </select>
+                            </div>
+                            <div>
+                                <img src="@Model.ImageUrl" width="200" />
+                            </div>
+                            @*  <div class="form-group">
+                            <label>Görsel</label>
+                            <input type="file" class="form-control" name="File">
+                            </div> *@
+                            <div class="form-group">
+                                <label asp-for="Price">Fiyat</label>
+                                <input required="" type="text" class="form-control" asp-for="Price">
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Meta.MetaTitle">Meta Başlığı</label>
+                                <input type="text" class="form-control" asp-for="Meta.MetaTitle">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Meta.MetaDescription">Meta Açıklaması</label>
+                                <input type="text" class="form-control" asp-for="Meta.MetaDescription">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Meta Keywordler</label>
+                                <input type="text" class="form-control" asp-for="Meta.MetaKeywords">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Durumu</label>
+                                <select required="" asp-items="@Html.GetEnumSelectList<Status>()" class="form-control" asp-for="Status">
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success" type="submit">Kaydet</button>
+                            <a class="btn btn-danger" asp-area="Admin" asp-controller="Product" asp-action="Index">İptal</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

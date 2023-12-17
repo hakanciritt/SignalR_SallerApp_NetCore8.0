@@ -31,7 +31,7 @@ namespace SignalR_App.Api.Controllers
             return ActionResult(result);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _categoryService.Delete(id);
