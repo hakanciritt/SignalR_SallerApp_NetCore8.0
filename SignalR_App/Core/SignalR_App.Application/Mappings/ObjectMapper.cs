@@ -21,6 +21,7 @@ namespace SignalR_App.Application.Mappings
                     new BaseFullEntityMap(),
                     new OrderItemMap(),
                     new OrderMap(),
+                    new SliderMap(),
                 });
             });
 

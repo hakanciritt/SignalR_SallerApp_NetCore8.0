@@ -2,6 +2,7 @@
 using SignalR_App.Application.Repositories;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.Services.Concretes;
+using SignalR_App.Application.WebServices;
 
 namespace SignalR_App.Application
 {
@@ -9,6 +10,8 @@ namespace SignalR_App.Application
     {
         public static void AddApplicationServiceRegistration(this IServiceCollection services)
         {
+            services.AddMemoryCache();
+
             services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
 
             services.AddScoped<IBookingService, BookingService>();
@@ -19,6 +22,8 @@ namespace SignalR_App.Application
             services.AddScoped<ITestimonailService, TestimonailService>();
             services.AddScoped<ITextContentService, TextContentService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<ISliderService, SliderService>();
+            services.AddScoped<IWebService, WebService>();
         }
     }
 }
