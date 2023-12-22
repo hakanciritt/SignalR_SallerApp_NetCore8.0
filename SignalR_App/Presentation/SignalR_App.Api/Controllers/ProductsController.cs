@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.ProductDtos;
 using SignalR_App.Application.Services.Abstracts;
+using SignalR_App.Application.WebServices;
 
 namespace SignalR_App.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController(IProductService productService) : ApiControllerBase
+    public class ProductsController(IProductService productService, IWebService webService) : ApiControllerBase
     {
         private readonly IProductService _productService = productService;
+        private readonly IWebService _webService = webService;
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -43,6 +45,13 @@ namespace SignalR_App.Api.Controllers
         {
             var result = await _productService.Update(product);
             return ActionResult(result);
+        }
+
+        [HttpGet(nameof(GetAllProductsForWeb))]
+        public async Task<IActionResult> GetAllProductsForWeb()
+        {
+            var products = await _webService.GetAllProducts();
+            return Ok(products);
         }
     }
 }

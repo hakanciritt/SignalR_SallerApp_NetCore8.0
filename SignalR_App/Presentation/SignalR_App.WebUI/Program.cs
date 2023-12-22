@@ -18,6 +18,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 builder.Services.AddHttpClient("Categories", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 builder.Services.AddHttpClient("Products", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 builder.Services.AddHttpClient("TextContent", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
+builder.Services.AddHttpClient("Sliders", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 
 var app = builder.Build();
 
