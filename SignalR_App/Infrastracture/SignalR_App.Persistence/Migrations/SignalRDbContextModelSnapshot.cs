@@ -22,6 +22,81 @@ namespace SignalR_App.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DelationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MenuTableId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BasketId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DelationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("SignalR_App.Domain.Entitites.Booking", b =>
                 {
                     b.Property<int>("Id")
@@ -128,6 +203,46 @@ namespace SignalR_App.Persistence.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Discounts");
+                });
+
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.MenuTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("BasketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BasketId1")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DelationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId1");
+
+                    b.ToTable("MenuTables");
                 });
 
             modelBuilder.Entity("SignalR_App.Domain.Entitites.Meta", b =>
@@ -421,6 +536,25 @@ namespace SignalR_App.Persistence.Migrations
                     b.ToTable("TextContents");
                 });
 
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.BasketItem", b =>
+                {
+                    b.HasOne("SignalR_App.Domain.Entitites.Basket", "Basket")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SignalR_App.Domain.Entitites.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("SignalR_App.Domain.Entitites.Category", b =>
                 {
                     b.HasOne("SignalR_App.Domain.Entitites.Meta", "Meta")
@@ -443,6 +577,17 @@ namespace SignalR_App.Persistence.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.MenuTable", b =>
+                {
+                    b.HasOne("SignalR_App.Domain.Entitites.Basket", "Basket")
+                        .WithMany()
+                        .HasForeignKey("BasketId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
                 });
 
             modelBuilder.Entity("SignalR_App.Domain.Entitites.OrderItem", b =>
@@ -486,6 +631,11 @@ namespace SignalR_App.Persistence.Migrations
                         .HasForeignKey("MetaId");
 
                     b.Navigation("Meta");
+                });
+
+            modelBuilder.Entity("SignalR_App.Domain.Entitites.Basket", b =>
+                {
+                    b.Navigation("BasketItems");
                 });
 
             modelBuilder.Entity("SignalR_App.Domain.Entitites.Category", b =>

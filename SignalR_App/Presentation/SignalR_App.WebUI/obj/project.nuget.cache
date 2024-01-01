@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0mMM0987jwvjIW+rWgR6L/W4K58OO1QNpOV8Cq+Y/u9AH5F/d8zHaWSI1eQ0BIJxwL5K4cl5rEP50am2uSiqxw==",
+  "dgSpecHash": "50kdR3iDzYYyuDwqxsuoo0XqVw8B0+QnhHOPY+bN8PWlG7lMzjIJlNg2zoqp2K46IxssPa8Nx/SzCZnZDfgqEg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\SignalR_App.WebUI.csproj",
   "expectedPackageFiles": [

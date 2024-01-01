@@ -22,6 +22,7 @@ namespace SignalR_App.Application.Mappings
                     new OrderItemMap(),
                     new OrderMap(),
                     new SliderMap(),
+                    new BasketMap(),
                 });
             });
 

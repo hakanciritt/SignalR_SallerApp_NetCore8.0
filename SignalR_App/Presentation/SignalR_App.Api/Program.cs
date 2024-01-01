@@ -1,6 +1,7 @@
+using Microsoft.OpenApi.Models;
 using SignalR_App.Application;
+using SignalR_App.Application.Hubs;
 using SignalR_App.Persistence;
-using SignalR_App.SignalR;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,9 +18,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+builder.Services.AddSignalR();
+
 builder.Services.AddPersistenceServiceRegistration(builder.Configuration);
 builder.Services.AddApplicationServiceRegistration();
-builder.Services.AddSignalRServiceRegistration();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -30,7 +32,34 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(opt =>
+{
+    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "SignalRApp", Version = "v1" });
+    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
+
+    opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
+});
 
 var app = builder.Build();
 
@@ -49,6 +78,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapHubs();
+app.MapHub<MainHub>("/main-hub");
 
 app.Run();

@@ -292,8 +292,6 @@ D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.We
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\obj\Debug\net8.0\SignalR_App.WebUI.pdb
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\obj\Debug\net8.0\SignalR_App.WebUI.genruntimeconfig.cache
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\obj\Debug\net8.0\ref\SignalR_App.WebUI.dll
-D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\SignalR_App.SignalR.dll
-D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\SignalR_App.SignalR.pdb
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\StackExchange.Redis.dll

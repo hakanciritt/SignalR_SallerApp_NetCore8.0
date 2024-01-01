@@ -36,7 +36,10 @@ namespace SignalR_App.Application
             services.AddScoped<ITextContentService, TextContentService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<ISliderService, SliderService>();
+
+
             services.AddScoped<IWebService, WebService>();
+            services.AddScoped<IBasketWebService, BasketWebService>();
         }
     }
 }

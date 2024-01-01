@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastracture\SignalR_App.Persistence\SignalR_App.Persistence.csproj" />
-    <ProjectReference Include="..\..\Infrastracture\SignalR_App.SignalR\SignalR_App.SignalR.csproj" />
   </ItemGroup>
 
 </Project>

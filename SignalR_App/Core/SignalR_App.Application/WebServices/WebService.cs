@@ -46,18 +46,22 @@ namespace SignalR_App.Application.WebServices
                 keys.AddRange(server.Keys(pattern: $"product-*:category-*"));
             }
 
-            var productsCount = await _productRepository.GetAll().CountAsync(c => c.Status == Domain.Enums.Status.Active
-                        && c.Category.Status == Domain.Enums.Status.Active);
+            var productsCount = await _productRepository.GetAll()
+                .CountAsync(c => c.Status == Domain.Enums.Status.Active && c.Category.Status == Domain.Enums.Status.Active);
+
             if (productsCount != keys.Count)
             {
-                var products = await _productRepository.GetAll().Include(c => c.Category).Where(c => c.Status == Domain.Enums.Status.Active
-                         && c.Category.Status == Domain.Enums.Status.Active).ToListAsync();
+                var products = await _productRepository.GetAll()
+                    .Include(c => c.Category)
+                    .Include(c => c.Meta)
+                    .Where(c => c.Status == Domain.Enums.Status.Active && c.Category.Status == Domain.Enums.Status.Active).ToListAsync();
 
                 var mapping = ObjectMapper.Map.Map<List<ProductDto>>(products);
                 mapping.ForEach(c => c.Category.Products = null);
 
-                await connection.StringSetAsync(mapping.Select(d =>
-                        new KeyValuePair<RedisKey, RedisValue>($"product-{d.Id}:category-{d.Category?.Id}", JsonSerializer.Serialize(d))).ToArray());
+                await connection.StringSetAsync(
+                    mapping.Select(d => new KeyValuePair<RedisKey, RedisValue>($"product-{d.Id}:category-{d.Category?.Id}",
+                    JsonSerializer.Serialize(d))).ToArray());
 
                 return mapping;
             }

@@ -2044,8 +2044,7 @@
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.0",
-          "SignalR_App.Persistence": "1.0.0",
-          "SignalR_App.SignalR": "1.0.0"
+          "SignalR_App.Persistence": "1.0.0"
         },
         "runtime": {
           "SignalR_App.Application.dll": {}
@@ -2064,14 +2063,6 @@
         },
         "runtime": {
           "SignalR_App.Persistence.dll": {}
-        }
-      },
-      "SignalR_App.SignalR/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
-        },
-        "runtime": {
-          "SignalR_App.SignalR.dll": {}
         }
       }
     }
@@ -3360,11 +3351,6 @@
       "sha512": ""
     },
     "SignalR_App.Persistence/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SignalR_App.SignalR/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
