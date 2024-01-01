@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ol6IoMYXVpgzJHfxJJtXaFE1rMDXnz0sa4IlW/Nyuvg=",
+  "Hash": "sy4u8I+hK4ubMyhQ/9xFlzfTHaKMfeA7mq4fudgvhkk=",
   "Source": "SignalR_App.WebUI",
   "BasePath": "_content/SignalR_App.WebUI",
   "Mode": "Default",
@@ -832,6 +832,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\admin\\textcontents\\Index.js"
+    },
+    {
+      "Identity": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\chat.js",
+      "SourceId": "SignalR_App.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\",
+      "BasePath": "_content/SignalR_App.WebUI",
+      "RelativePath": "js/chat.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chat.js"
     },
     {
       "Identity": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js",

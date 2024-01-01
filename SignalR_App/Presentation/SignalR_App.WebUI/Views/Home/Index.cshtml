@@ -1,25 +1,5 @@
 ﻿@model HomeViewModel
 
-@section Scripts {
-    <script>
-
-        $(document).ready(function () {
-
-            var connection = new signalR.HubConnectionBuilder().withUrl(ApiBaseUrl + "main-hub").build();
-
-            connection.start()
-                .then(() => {
-
-                    $("#connstatus").text(connection.state);
-                })
-                .catch(err => {
-                    console.log(err)
-                });
-        });
-
-    </script>
-}
-
 <section class="slider_section ">
     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -56,8 +36,6 @@
                     <li data-target="#customCarousel1" data-slide-to="@i" class="active"></li>
                 }
 
-                @*                 <li data-target="#customCarousel1" data-slide-to="1"></li>
-                <li data-target="#customCarousel1" data-slide-to="2"></li> *@
             </ol>
         </div>
     </div>

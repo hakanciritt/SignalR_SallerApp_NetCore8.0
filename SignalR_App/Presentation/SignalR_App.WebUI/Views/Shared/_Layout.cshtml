@@ -3,18 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Basic -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="~/feane-1.0.0/images/favicon.png" type="">
 
-    <title> Feane </title>
+    <title> SignalR App </title>
 
     <link rel="stylesheet" type="text/css" href="~/feane-1.0.0/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -157,8 +154,9 @@
                 <p>
                     &copy; <span id="displayYear"></span> All Rights Reserved By
                     <a href="https://html.design/">Free Html Templates</a><br><br>
-                    &copy; <span id="displayYear"></span> Distributed By
-                    <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                    <span>
+                        Anlık Kullanıcı Sayısı : <strong id="client-count">0</strong>
+                    </span>
                 </p>
             </div>
         </div>
@@ -186,6 +184,26 @@
     <script src="~/js/sweetalert2/sweetalert2.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+
+            var connection = new signalR.HubConnectionBuilder().withUrl(ApiBaseUrl + "main-hub").build();
+
+            connection.start()
+                .then(() => {
+                    $("#connstatus").text(connection.state);
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+
+            connection.on("ReceiveConnectionCount", (count) => {
+                $("#client-count").text(count);
+            });
+        });
+
+    </script>
 
 </body>
 </html>

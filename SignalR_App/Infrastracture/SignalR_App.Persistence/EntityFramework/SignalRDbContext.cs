@@ -24,6 +24,7 @@ namespace SignalR_App.Persistence.EntityFramework
         public DbSet<Basket> Basket { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<MenuTable> MenuTables { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

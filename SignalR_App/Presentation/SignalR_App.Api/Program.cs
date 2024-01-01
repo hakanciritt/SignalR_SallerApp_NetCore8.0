@@ -6,6 +6,8 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
@@ -79,5 +81,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapHub<MainHub>("/main-hub");
+app.MapHub<BookingHub>("/booking-hub");
+app.MapHub<MessageHub>("/message-hub");
 
 app.Run();

@@ -3,13 +3,13 @@
     public abstract class BaseEntity
     {
         public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? LastModificationDate { get; set; }
+        public virtual DateTime CreatedDate { get; set; }
+        public virtual DateTime? LastModificationDate { get; set; }
     }
     public abstract class BaseEntity<TPrimaryKey> where TPrimaryKey : struct
     {
         public TPrimaryKey Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? LastModificationDate { get; set; }
+        public virtual DateTime CreatedDate { get; set; }
+        public virtual DateTime? LastModificationDate { get; set; }
     }
 }

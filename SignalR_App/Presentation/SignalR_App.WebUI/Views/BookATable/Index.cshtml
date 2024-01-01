@@ -1,0 +1,62 @@
+﻿@model CreateBookingViewModel
+@section Scripts {
+
+
+
+}
+
+<section class="book_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+
+                Rezervasyon Oluşturun
+
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <form asp-action="CreateBooking" asp-controller="BookATable" asp-antiforgery="true" method="post">
+                        <div>
+                            <input type="text" class="form-control" placeholder="Adınız Soyadınız" asp-for="Name" />
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Telefon Numaranız" asp-for="Phone" />
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" placeholder="E-Posta" asp-for="Mail" />
+                        </div>
+                        <div>
+                            <select class="form-control nice-select wide" asp-for="PersonCount">
+                                <option value="" disabled selected>
+                                    Kaç Kişisiniz?
+                                </option>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <option value="@i">
+                                        @i
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <input type="date" class="form-control" asp-for="Date" placeholder="Rezervasyon Tarihi">
+                        </div>
+                        <div class="btn_box">
+                            <button>
+                                Yerinizi Ayırtın
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="map_container ">
+                    <div id="googleMap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

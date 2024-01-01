@@ -469,6 +469,10 @@
       "PackagePath": "staticwebassets\\js\\admin\\textcontents\\Index.js"
     },
     {
+      "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
       "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\js\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js",
       "PackagePath": "staticwebassets\\js\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js"
     },

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SignalR_App.Application.Dtos.BookingDto;
+using SignalR_App.Application.Hubs;
 using SignalR_App.Application.Mappings;
 using SignalR_App.Application.Repositories;
 using SignalR_App.Application.Services.Abstracts;
@@ -12,9 +13,13 @@ namespace SignalR_App.Application.Services.Concretes
     public class BookingService : IBookingService
     {
         private readonly IRepository<Booking, int> _bookingRepository;
-        public BookingService(IRepository<Booking, int> bookingRepository)
+        private readonly IBookingHubService _bookingHubService;
+
+        public BookingService(IRepository<Booking, int> bookingRepository,
+            IBookingHubService bookingHubService)
         {
             _bookingRepository = bookingRepository;
+            _bookingHubService = bookingHubService;
         }
         public async Task<List<BookingDto>> GetAll()
         {
@@ -33,6 +38,9 @@ namespace SignalR_App.Application.Services.Concretes
             var mapping = ObjectMapper.Map.Map<Booking>(booking);
             var result = await _bookingRepository.InsertAsync(mapping);
             await _bookingRepository.SaveChangesAsync();
+            
+            await _bookingHubService.SendNewReservation($"{result.Date.ToShortDateString()} tarihi için yeni rezervasyon yapıldı");
+
             return result != null ? Result.Successed() : Result.Failed();
         }
         public async Task<Result> Delete(int id)

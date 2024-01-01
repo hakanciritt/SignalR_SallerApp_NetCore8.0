@@ -25,7 +25,7 @@ namespace SignalR_App.WebUI.Controllers
         public async Task<IActionResult> AddBasket()
         {
             var client = _httpClientFactory.CreateClient("Baskets");
-
+            return View();
         }
     }
 }

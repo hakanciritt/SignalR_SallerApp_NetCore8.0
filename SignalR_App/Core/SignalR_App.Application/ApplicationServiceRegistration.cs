@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SignalR_App.Application.Hubs;
 using SignalR_App.Application.Redis;
 using SignalR_App.Application.Repositories;
 using SignalR_App.Application.Services.Abstracts;
@@ -40,6 +41,14 @@ namespace SignalR_App.Application
 
             services.AddScoped<IWebService, WebService>();
             services.AddScoped<IBasketWebService, BasketWebService>();
+
+            #region Hubs
+
+            services.AddScoped<IBookingHubService, BookingHubService>();
+
+            #endregion
+
+
         }
     }
 }

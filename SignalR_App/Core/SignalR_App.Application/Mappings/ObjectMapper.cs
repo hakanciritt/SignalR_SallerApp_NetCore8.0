@@ -23,6 +23,7 @@ namespace SignalR_App.Application.Mappings
                     new OrderMap(),
                     new SliderMap(),
                     new BasketMap(),
+                    new NotificationMap(),
                 });
             });
 
