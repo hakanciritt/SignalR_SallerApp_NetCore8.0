@@ -1,15 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SignalR_App.Domain.Entitites;
 using SignalR_App.Persistence.Extensions;
 
 namespace SignalR_App.Persistence.EntityFramework
 {
-    public class SignalRDbContext : DbContext
+    public class SignalRDbContext : IdentityDbContext<AppUser, AppRole, long>
     {
         public SignalRDbContext(DbContextOptions<SignalRDbContext> options) : base(options)
         {
-
+            
         }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Discount> Discounts { get; set; }
@@ -47,7 +49,6 @@ namespace SignalR_App.Persistence.EntityFramework
             FiilInTheEntityStates();
             return base.SaveChangesAsync(cancellationToken);
         }
-
 
         private void FiilInTheEntityStates()
         {
