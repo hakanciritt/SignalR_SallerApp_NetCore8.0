@@ -23,5 +23,15 @@ namespace SignalR_App.Domain.Result
                 ErrorMessages = new() { message }
             };
         }
+        public static Result Failed(List<string> errorMessages)
+        {
+
+            return new Result()
+            {
+                Success = false,
+                Message = errorMessages?.First(),
+                ErrorMessages = errorMessages
+            };
+        }
     }
 }

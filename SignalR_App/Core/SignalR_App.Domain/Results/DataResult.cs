@@ -23,5 +23,15 @@
                 ErrorMessages = new() { message }
             };
         }
+        public static DataResult<TData> Failed(List<string> errorMessages)
+        {
+
+            return new DataResult<TData>()
+            {
+                Success = false,
+                Message = errorMessages?.FirstOrDefault(),
+                ErrorMessages = errorMessages
+            };
+        }
     }
 }
