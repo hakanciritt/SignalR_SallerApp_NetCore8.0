@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using SignalR_App.Application.Hubs;
 using SignalR_App.Application.Redis;
 using SignalR_App.Application.Repositories;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.Services.Concretes;
 using SignalR_App.Application.WebServices;
-using SignalR_App.Domain.Entitites;
-using SignalR_App.Persistence.EntityFramework;
 using StackExchange.Redis;
 
 namespace SignalR_App.Application
@@ -17,10 +14,6 @@ namespace SignalR_App.Application
         public static void AddApplicationServiceRegistration(this IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
-
-            services.AddIdentity<AppUser,AppRole>()
-                .AddEntityFrameworkStores<SignalRDbContext>()
-                .AddDefaultTokenProviders();
 
             services.AddStackExchangeRedisCache(options =>
             {
