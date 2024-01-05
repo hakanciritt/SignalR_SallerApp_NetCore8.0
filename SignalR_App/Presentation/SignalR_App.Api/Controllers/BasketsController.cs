@@ -4,8 +4,6 @@ using SignalR_App.Application.WebServices;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class BasketsController(IBasketWebService basketWebService) : ApiControllerBase
     {
         private readonly IBasketWebService _basketWebService = basketWebService;
@@ -20,7 +18,7 @@ namespace SignalR_App.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateBasketDto basket)
         {
-
+            
             return Ok();
         }
     }

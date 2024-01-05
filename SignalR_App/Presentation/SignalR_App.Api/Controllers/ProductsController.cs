@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.ProductDtos;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.WebServices;
@@ -7,6 +9,7 @@ namespace SignalR_App.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProductsController(IProductService productService, IWebService webService) : ApiControllerBase
     {
         private readonly IProductService _productService = productService;
@@ -47,7 +50,7 @@ namespace SignalR_App.Api.Controllers
             return ActionResult(result);
         }
 
-        [HttpGet(nameof(GetAllProductsForWeb))]
+        [HttpGet("GetAllProductsForWeb")]
         public async Task<IActionResult> GetAllProductsForWeb()
         {
             var products = await _webService.GetAllProducts();

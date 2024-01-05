@@ -1,11 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.BookingDto;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [CustomAuthorize("Bookings")]
     public class BookingsController(IBookingService bookingService) : ApiControllerBase
     {
         private readonly IBookingService _bookingService = bookingService;
@@ -17,7 +22,7 @@ namespace SignalR_App.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("detail")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
             var result = await _bookingService.GetById(id);
@@ -25,6 +30,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Create(BookingDto booking)
         {
             var result = await _bookingService.Create(booking);

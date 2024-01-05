@@ -6,11 +6,7 @@ using SignalR_App.Domain.Entitites;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController(
-        UserManager<AppUser> userManager,
-        SignInManager<AppUser> signInManager,
+    public class AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, 
         ITokenService tokenService,
         IUserService userService) : ApiControllerBase
     {
@@ -31,6 +27,19 @@ namespace SignalR_App.Api.Controllers
             }
 
             return BadRequest(registerResult);
+        }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(LoginDto login)
+        {
+            var loginResult = await _userService.Login(login);
+            if (loginResult.Success)
+            {
+                var token = await _tokenService.CreateAccessToken(loginResult.Data);
+                return Ok(token);
+            }
+
+            return BadRequest(loginResult);
         }
     }
 }

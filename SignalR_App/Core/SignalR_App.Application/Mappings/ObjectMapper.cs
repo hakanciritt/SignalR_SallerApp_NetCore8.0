@@ -24,6 +24,7 @@ namespace SignalR_App.Application.Mappings
                     new SliderMap(),
                     new BasketMap(),
                     new NotificationMap(),
+                    new ContactMap(),
                 });
             });
 
@@ -31,5 +32,9 @@ namespace SignalR_App.Application.Mappings
         });
 
         public static IMapper Map => lazy.Value;
+        public static TDestination Mapper<TDestination>(object source)
+        {
+            return lazy.Value.Map<TDestination>(source);
+        }
     }
 }

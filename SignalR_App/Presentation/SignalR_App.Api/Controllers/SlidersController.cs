@@ -1,19 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SignalR_App.Application.Dtos.ProductDtos;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Services.Abstracts;
-using SignalR_App.Application.Services.Concretes;
 using SignalR_App.Application.WebServices;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class SlidersController(ISliderService sliderService, IWebService webService) : ApiControllerBase
     {
         private readonly ISliderService _sliderService = sliderService;
         private readonly IWebService _webService = webService;
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var result = await _webService.GetAllSliders();

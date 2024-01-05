@@ -7,5 +7,6 @@ namespace SignalR_App.Application.Services.Abstracts
     public interface IUserService
     {
         Task<DataResult<AppUser>> CreateUser(RegisterDto register);
+        Task<DataResult<AppUser>> Login(LoginDto login);
     }
 }

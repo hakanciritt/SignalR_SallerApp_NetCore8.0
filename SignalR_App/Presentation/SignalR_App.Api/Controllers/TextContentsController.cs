@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.TextContentDtos;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TextContentsController : ApiControllerBase
     {
         private readonly ITextContentService _textContentService;
@@ -16,6 +17,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpGet("about")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAbout()
         {
             var result = await _textContentService.GetTextContentByKey("About");
@@ -28,6 +30,7 @@ namespace SignalR_App.Api.Controllers
             var result = await _textContentService.GetById(id);
             return Ok(result);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

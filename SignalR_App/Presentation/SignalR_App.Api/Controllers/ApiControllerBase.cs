@@ -4,6 +4,8 @@ using SignalR_App.Domain.Results;
 
 namespace SignalR_App.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ApiControllerBase : ControllerBase
     {
         protected ObjectResult ActionResult(Result result)

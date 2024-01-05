@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.CategoryDto;
 using SignalR_App.Application.Services.Abstracts;
 
@@ -6,6 +8,7 @@ namespace SignalR_App.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CategoriesController(ICategoryService categoryService) : ApiControllerBase
     {
         private readonly ICategoryService _categoryService = categoryService;

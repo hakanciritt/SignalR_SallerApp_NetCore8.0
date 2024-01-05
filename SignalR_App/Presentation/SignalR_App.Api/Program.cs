@@ -4,6 +4,8 @@ using Microsoft.OpenApi.Models;
 using SignalR_App.Application;
 using SignalR_App.Application.Hubs;
 using SignalR_App.Persistence;
+using SignalR_App.Persistence.EntityFramework;
+using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -15,8 +17,11 @@ var issuer = builder.Configuration["Jwt:Issuer"];
 var audience = builder.Configuration["Jwt:Audience"];
 var securityKey = builder.Configuration["Jwt:SecurityKey"];
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters()
         {
@@ -59,6 +64,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "SignalRApp", Version = "v1" });
+
     opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -87,6 +93,33 @@ builder.Services.AddSwaggerGen(opt =>
 
 var app = builder.Build();
 
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    try
+    {
+        using var scope = app.Services.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<SignalRDbContext>();
+        var permissions = typeof(Permissions).GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
+        var appPermissions = context.Permissions.ToList();
+
+        foreach (var permission in permissions)
+        {
+            if (appPermissions.Exists(d => d.Name == permission.Name.Trim())) continue;
+
+            context.Permissions.Add(new SignalR_App.Domain.Entitites.AppPermission()
+            {
+                Name = permission.Name,
+            });
+        }
+
+        context.SaveChanges();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
+
+});
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

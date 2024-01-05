@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.SettingDtos;
-using SignalR_App.Application.Dtos.TestimonialDtos;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class SettingsController(ISettingService settingService) : ApiControllerBase
     {
         private readonly ISettingService _settingService = settingService;

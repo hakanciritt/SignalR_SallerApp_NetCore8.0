@@ -4,6 +4,7 @@ using SignalR_App.Application.Dtos.AuthenticateDtos;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Domain.Entitites;
 using SignalR_App.Domain.Results;
+using System.Security.Claims;
 
 namespace SignalR_App.Application.Services.Concretes
 {
@@ -52,6 +53,22 @@ namespace SignalR_App.Application.Services.Concretes
             }
 
             return DataResult<AppUser>.Successed(findUser, "Kullanıcı başarılı bir şekilde kayıt edildi");
+        }
+
+        public async Task<DataResult<AppUser>> Login(LoginDto login)
+        {
+            var user = await _userManager.FindByEmailAsync(login.Email);
+
+            if (user is null) return DataResult<AppUser>.Failed("Kullanıcı bulunamadı.");
+
+            var signInResult = await _signInManager.CheckPasswordSignInAsync(user, login.Password, false);
+            if (!signInResult.Succeeded)
+            {
+                return DataResult<AppUser>.Failed("Kullanıcı adı veya şifre hatalı");
+            }
+            await _signInManager.SignInWithClaimsAsync(user, true, new List<Claim> { });
+
+            return DataResult<AppUser>.Successed(user);
         }
     }
 }
