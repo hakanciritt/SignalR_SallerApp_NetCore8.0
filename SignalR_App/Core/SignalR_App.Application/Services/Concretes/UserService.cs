@@ -66,9 +66,13 @@ namespace SignalR_App.Application.Services.Concretes
             {
                 return DataResult<AppUser>.Failed("Kullanıcı adı veya şifre hatalı");
             }
-            await _signInManager.SignInWithClaimsAsync(user, true, new List<Claim> { });
+            await _signInManager.SignInAsync(user, true);
 
             return DataResult<AppUser>.Successed(user);
+        }
+        public async Task Logout()
+        {
+            await _signInManager.SignOutAsync();
         }
     }
 }

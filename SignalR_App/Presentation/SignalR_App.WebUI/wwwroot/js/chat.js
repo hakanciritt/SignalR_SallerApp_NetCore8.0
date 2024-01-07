@@ -6,33 +6,30 @@
         .then(() => {
 
             $("#connstatus").text(connection.state);
-
         })
         .catch(err => {
             console.log(err)
         });
+    $("#send-message").click(function (e) {
 
-    $("#send-button").click(function (e) {
-        var user = document.getElementById("user-input").value;
-        var message = document.getElementById("message").value;
-        connection.invoke("SendMessage", user, message);
+        var message = $("#message").val();
+        connection.invoke("SendMessageToAdmin", message);
 
-        e.preventDefault();
+        var messageTemplate = $("#SenderMessage").html();
+        var replacedMessage = messageTemplate.replace("{{Message}}", message);
+        $("#chat-body").append(replacedMessage);
+        $("#message").val("");
     });
-
-    connection.on("ReceiveMessage", (user, message) => {
-        var li = document.createElement("li");
-        var span = document.createElement("span");
-        span.style.fontWeight = "bold";
-        span.textContent = user;
-        li.appendChild(span);
-        li.innerHTML += `: ${message}`;
-
-        var messageList = document.getElementById("message-list");
-
-        messageList.appendChild(li);
+    $("#message").keyup(function (e) {
+        if (e.which == 13) {
+            $("#send-message").click();
+        }
     });
+    connection.on("ReceiveMessageForCustomer", (message) => {
 
-
+        var messageTemplate = $("#ReceiverMessage").html();
+        var replacedMessage = messageTemplate.replace("{{Message}}", message);
+        $("#chat-body").append(replacedMessage);
+    })
 });
 

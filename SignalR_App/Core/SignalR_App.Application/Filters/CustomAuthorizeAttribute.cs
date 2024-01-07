@@ -26,7 +26,13 @@ namespace SignalR_App.Application.Filters
                 return;
             }
 
-            var claims = context.HttpContext.User.Claims.Select(c => c.Value).ToList();
+            var claims = context?.HttpContext.User.Claims.Select(c => c.Value).ToList();
+
+            if (!_permissions.Any() && (isAuthenticate.HasValue && isAuthenticate.Value))
+            {
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+                context.Result = new UnauthorizedObjectResult(new { error = $"geçerli izinlere sahip olmalısınız." });
+            }
 
             foreach (var permission in _permissions.ToList())
             {
@@ -35,7 +41,7 @@ namespace SignalR_App.Application.Filters
                 {
                     context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                     context.Result = new UnauthorizedObjectResult(new
-                    { error = $"{permission} yetkisine sahip olmadığınız için giriş yapamazsınız." });
+                    { error = $"{permission} yetkisine sahip olmalısınız." });
                 }
             }
         }

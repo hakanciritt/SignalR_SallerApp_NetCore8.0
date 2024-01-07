@@ -5,5 +5,6 @@
         public const string ReceiveCategoryCount = "ReceiveCategoryCount";
         public const string ReceiveNewReservation = "ReceiveNewReservation";
         public const string ReceiveConnectionCount = "ReceiveConnectionCount";
+        public const string ReceiveMessageForCustomer = "ReceiveMessageForCustomer";
     }
 }

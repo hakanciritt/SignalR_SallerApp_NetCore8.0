@@ -9,7 +9,7 @@ namespace SignalR_App.Persistence.EntityFramework
     {
         public SignalRDbContext(DbContextOptions<SignalRDbContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<Category> Categories { get; set; }
@@ -75,6 +75,11 @@ namespace SignalR_App.Persistence.EntityFramework
                         fullEntityResult.IsDeleted = true;
                         fullEntityResult.DelationTime = DateTime.Now;
                         item.State = EntityState.Modified;
+                    }
+                    else if (item.State == EntityState.Added)
+                    {
+                        fullEntityResult.IsDeleted = false;
+                        fullEntityResult.DelationTime = null;
                     }
                 }
             }

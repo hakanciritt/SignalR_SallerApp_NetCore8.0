@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.TestimonialDtos;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [CustomAuthorize]
     public class TestimonialsController(ITestimonailService testimonialService) : ApiControllerBase
     {
         private readonly ITestimonailService _testimonialService = testimonialService;
@@ -18,7 +17,7 @@ namespace SignalR_App.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("detail")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
             var result = await _testimonialService.GetById(id);

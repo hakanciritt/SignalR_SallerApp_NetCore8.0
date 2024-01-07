@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.TextContentDtos;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [CustomAuthorize]
     public class TextContentsController : ApiControllerBase
     {
         private readonly ITextContentService _textContentService;

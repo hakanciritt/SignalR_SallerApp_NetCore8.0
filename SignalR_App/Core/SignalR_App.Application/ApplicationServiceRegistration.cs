@@ -37,6 +37,7 @@ namespace SignalR_App.Application
             services.AddScoped<ITextContentService, TextContentService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<ISliderService, SliderService>();
+            services.AddScoped<IContactService, ContactService>();
 
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserService, UserService>();

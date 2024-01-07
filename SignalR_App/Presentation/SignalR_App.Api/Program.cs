@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SignalR_App.Application;
 using SignalR_App.Application.Hubs;
+using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Persistence;
 using SignalR_App.Persistence.EntityFramework;
 using System.Reflection;
@@ -21,6 +22,7 @@ builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+
 }).AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters()
@@ -31,6 +33,16 @@ builder.Services.AddAuthentication(options =>
             ClockSkew = TimeSpan.Zero,
             ValidAudience = audience,
             ValidIssuer = issuer,
+            LifetimeValidator = (notBefore, expires, securityToken, validationParameters) =>
+            {
+                bool expireCheck = expires.HasValue ? expires.Value > DateTime.UtcNow : false;
+                if (expireCheck)
+                {
+                    var userService = (IUserService)builder.Services.FirstOrDefault(c => c.ServiceType == typeof(IUserService));
+                    if (userService != null) userService.Logout().Wait();
+                }
+                return expireCheck;
+            },
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey))
         };
     });
@@ -57,8 +69,6 @@ builder.Services.AddControllers()
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
@@ -93,33 +103,8 @@ builder.Services.AddSwaggerGen(opt =>
 
 var app = builder.Build();
 
-app.Lifetime.ApplicationStarted.Register(() =>
-{
-    try
-    {
-        using var scope = app.Services.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<SignalRDbContext>();
-        var permissions = typeof(Permissions).GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
-        var appPermissions = context.Permissions.ToList();
+app.Lifetime.ApplicationStarted.Register(CreatePermissions);
 
-        foreach (var permission in permissions)
-        {
-            if (appPermissions.Exists(d => d.Name == permission.Name.Trim())) continue;
-
-            context.Permissions.Add(new SignalR_App.Domain.Entitites.AppPermission()
-            {
-                Name = permission.Name,
-            });
-        }
-
-        context.SaveChanges();
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e);
-    }
-
-});
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -141,3 +126,31 @@ app.MapHub<BookingHub>("/booking-hub");
 app.MapHub<MessageHub>("/message-hub");
 
 app.Run();
+
+void CreatePermissions()
+{
+    try
+    {
+        using var scope = app.Services.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<SignalRDbContext>();
+        var permissions = typeof(Permissions).GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
+        var appPermissions = context.Permissions.ToList();
+
+        int counter = 0;
+        foreach (var permission in permissions)
+        {
+            if (appPermissions.Exists(d => d.Name == permission.Name.Trim())) continue;
+
+            context.Permissions.Add(new()
+            {
+                Name = permission.GetValue(permission)?.ToString(),
+            });
+            counter++;
+        }
+        if (counter > 0) context.SaveChanges();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
+}

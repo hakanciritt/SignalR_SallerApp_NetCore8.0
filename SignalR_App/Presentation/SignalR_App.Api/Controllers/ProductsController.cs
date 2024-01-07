@@ -1,21 +1,20 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application;
 using SignalR_App.Application.Dtos.ProductDtos;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.WebServices;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class ProductsController(IProductService productService, IWebService webService) : ApiControllerBase
     {
         private readonly IProductService _productService = productService;
         private readonly IWebService _webService = webService;
 
         [HttpGet]
+        [CustomAuthorize(Permissions.ProductRead)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _productService.GetAll();
@@ -23,6 +22,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [CustomAuthorize(Permissions.ProductRead)]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
             var result = await _productService.GetById(id);
@@ -30,6 +30,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpPost]
+        [CustomAuthorize(Permissions.ProductCreateOrUpdate)]
         public async Task<IActionResult> Create(ProductDto product)
         {
             var result = await _productService.Create(product);
@@ -37,6 +38,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [CustomAuthorize(Permissions.ProductDelete)]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var result = await _productService.Delete(id);
@@ -44,6 +46,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpPut]
+        [CustomAuthorize(Permissions.ProductCreateOrUpdate)]
         public async Task<IActionResult> Update(ProductDto product)
         {
             var result = await _productService.Update(product);

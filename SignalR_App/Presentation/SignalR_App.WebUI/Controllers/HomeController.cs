@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.Dtos;
 using SignalR_App.Application.Dtos.ProductDtos;
 using SignalR_App.WebUI.Models;
-using System.Diagnostics;
 
 namespace SignalR_App.WebUI.Controllers
 {
@@ -26,15 +25,5 @@ namespace SignalR_App.WebUI.Controllers
             });
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

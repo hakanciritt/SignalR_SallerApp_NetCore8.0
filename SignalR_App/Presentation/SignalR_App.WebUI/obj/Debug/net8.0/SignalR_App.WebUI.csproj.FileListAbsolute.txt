@@ -297,3 +297,4 @@ D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.We
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\StackExchange.Redis.dll
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\SignalR_SallerApp_NetCore8.0\SignalR_App\Presentation\SignalR_App.WebUI\obj\Debug\net8.0\SignalR_App.WebUI.MvcApplicationPartsAssemblyInfo.cs

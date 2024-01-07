@@ -7,10 +7,7 @@ using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [CustomAuthorize("Bookings")]
+    [CustomAuthorize]
     public class BookingsController(IBookingService bookingService) : ApiControllerBase
     {
         private readonly IBookingService _bookingService = bookingService;

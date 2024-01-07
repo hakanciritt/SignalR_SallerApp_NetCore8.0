@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos.SettingDtos;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [CustomAuthorize]
     public class SettingsController(ISettingService settingService) : ApiControllerBase
     {
         private readonly ISettingService _settingService = settingService;
@@ -18,7 +17,7 @@ namespace SignalR_App.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("detail")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
             var result = await _settingService.GetById(id);

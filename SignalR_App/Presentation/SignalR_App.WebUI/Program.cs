@@ -1,7 +1,18 @@
+using SignalR_App.Application.Redis;
+using StackExchange.Redis;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+//þimdilik application servisler de eklendi sebebi redise direkt eriþebilmek burasý güncellenecek.
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSingleton(provider =>
+{
+    var connection = ConnectionMultiplexer.Connect("localhost:6379,abortConnect=false ");
+    return new RedisConfiguration(connection);
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()

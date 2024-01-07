@@ -18,7 +18,7 @@ namespace SignalR_App.Application.Hubs
         public override async Task OnConnectedAsync()
         {
             var connection = _redis.Connect(0);
-            var address = _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
+            var address = _httpContextAccessor.HttpContext?.Connection.RemoteIpAddress?.ToString();
             var list = (await connection.ListRangeAsync("ConnectionList")).ToStringArray();
             if (!list.Any(d => d == address)) await connection.ListRightPushAsync("ConnectionList", address);
             int connectionCount = (await connection.ListRangeAsync("ConnectionList")).Count();
@@ -29,7 +29,7 @@ namespace SignalR_App.Application.Hubs
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             var connection = _redis.Connect(0);
-            var address = _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
+            var address = _httpContextAccessor.HttpContext?.Connection.RemoteIpAddress?.ToString();
             var list = (await connection.ListRangeAsync("ConnectionList")).ToStringArray();
             if (list.Any(c => c == address)) await connection.ListRemoveAsync("ConnectionList", address);
             int connectionCount = (await connection.ListRangeAsync("ConnectionList")).Count();

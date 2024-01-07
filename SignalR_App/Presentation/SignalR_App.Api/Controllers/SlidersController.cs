@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.WebServices;
 
 namespace SignalR_App.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class SlidersController(ISliderService sliderService, IWebService webService) : ApiControllerBase
     {
         private readonly ISliderService _sliderService = sliderService;
