@@ -313,6 +313,10 @@
       "PackagePath": "staticwebassets\\Ready-Bootstrap-Dashboard-master\\typography.html"
     },
     {
+      "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\css\\admin_chat.css",
+      "PackagePath": "staticwebassets\\css\\admin_chat.css"
+    },
+    {
       "Id": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

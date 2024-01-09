@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Redis;
+using SignalR_App.WebUI.Areas.Admin.Models;
 using StackExchange.Redis;
 
 namespace SignalR_App.WebUI.Areas.Admin.Controllers
@@ -26,6 +27,18 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             }
 
             return View(keys.Select(c => Convert.ToString(c)).ToList());
+        }
+        public async Task<PartialViewResult> GetMessageListByUser(string user)
+        {
+            var connection = _redis.Connect();
+
+            var messages = await connection.StreamReadAsync(user.Replace("user-connection", "chatuser"), "0");
+            var result = messages.Select(c => new ChatModel
+            {
+                UserName = c.Values?.FirstOrDefault(d => d.Name == "User").Value,
+                Message = c.Values?.FirstOrDefault(d => d.Name == "Message").Value
+            }).ToList();
+            return PartialView(result);
         }
     }
 }

@@ -42,12 +42,12 @@ namespace SignalR_App.Application.Hubs
 
             var connectionId = await redis.StringGetAsync(user);
 
-            await redis.StreamAddAsync(user.Replace("chatuser", "user-connection"), new[] {
+            await redis.StreamAddAsync(user.Replace("user-connection", "chatuser"), new[] {
                 new NameValueEntry("User", "Admin"),
                 new NameValueEntry("Message", message)
             });
 
-            await Clients.Client(connectionId.ToString()).SendAsync(ReceiverNames.ReceiveMessageForCustomer, message);
+            await Clients.Client(connectionId.ToString()).SendAsync(ReceiverNames.ReceiveMessageForAdmin, message);
         }
     }
 }

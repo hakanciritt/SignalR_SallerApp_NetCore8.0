@@ -25,9 +25,13 @@
             $("#send-message").click();
         }
     });
-    connection.on("ReceiveMessageForCustomer", (message) => {
+    connection.on("ReceiveMessageForAdmin", (message) => {
 
         var messageTemplate = $("#ReceiverMessage").html();
+        console.log(messageTemplate);
+        console.log(message);
+
+
         var replacedMessage = messageTemplate.replace("{{Message}}", message);
         $("#chat-body").append(replacedMessage);
     })
