@@ -36,6 +36,7 @@ namespace SignalR_App.Api.Controllers
             if (loginResult.Success)
             {
                 var token = await _tokenService.CreateAccessToken(loginResult.Data);
+                
                 return Ok(token);
             }
 

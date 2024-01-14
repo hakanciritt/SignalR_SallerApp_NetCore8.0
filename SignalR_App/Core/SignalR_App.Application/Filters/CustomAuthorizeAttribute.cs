@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
@@ -18,6 +19,13 @@ namespace SignalR_App.Application.Filters
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
+            var result = context.ActionDescriptor.FilterDescriptors
+                .Where(c => c.Scope == FilterScope.Action)
+                .Select(c => c.Filter)
+                .OfType<AllowAnonymousAttribute>();
+
+            if (result.Any()) return;
+
             bool? isAuthenticate = context?.HttpContext?.User?.Identity?.IsAuthenticated;
             if (isAuthenticate.HasValue && !isAuthenticate.Value)
             {

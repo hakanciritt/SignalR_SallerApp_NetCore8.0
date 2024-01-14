@@ -1,4 +1,4 @@
-﻿@model List<string>
+﻿@model List<KeyValuePair<string, string>>
 
 @section Scripts {
     <script src="~/js/admin/admin_chat.js" asp-append-version="true"></script>
@@ -43,10 +43,10 @@
                         <ul class="list-unstyled chat-list mt-2 mb-0">
                             @foreach (var item in Model)
                             {
-                                <li class="clearfix chat-user" data-user-id="@item">
+                                <li class="clearfix chat-user" data-user-id="@item.Key">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
                                     <div class="about">
-                                        <div class="name">@item</div>
+                                        <div class="name">@item.Value</div>
                                         <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
                                     </div>
                                 </li>

@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using SignalR_App.Application.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Application.WebServices;
 
@@ -14,7 +11,6 @@ namespace SignalR_App.Api.Controllers
         private readonly IWebService _webService = webService;
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var result = await _webService.GetAllSliders();

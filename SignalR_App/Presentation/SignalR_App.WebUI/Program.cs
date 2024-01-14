@@ -1,18 +1,19 @@
-using SignalR_App.Application.Redis;
-using StackExchange.Redis;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-//þimdilik application servisler de eklendi sebebi redise direkt eriþebilmek burasý güncellenecek.
-
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSingleton(provider =>
+builder.Services.AddAuthentication(opt =>
 {
-    var connection = ConnectionMultiplexer.Connect("localhost:6379,abortConnect=false ");
-    return new RedisConfiguration(connection);
-});
+    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
+    {
+        opt.LoginPath = "/Admin/User/Index";
+        opt.LogoutPath= "/Admin/User/Logout";
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
@@ -31,6 +32,8 @@ builder.Services.AddHttpClient("Products", options => options.BaseAddress = new 
 builder.Services.AddHttpClient("TextContent", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 builder.Services.AddHttpClient("Sliders", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 builder.Services.AddHttpClient("Bookings", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
+builder.Services.AddHttpClient("Chats", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
+builder.Services.AddHttpClient("Auth", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 
 var app = builder.Build();
 
@@ -47,6 +50,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

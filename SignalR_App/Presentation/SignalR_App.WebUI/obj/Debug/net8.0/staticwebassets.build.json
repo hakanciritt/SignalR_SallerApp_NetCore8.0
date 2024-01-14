@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RnJfyqrnuaRBHZQj9LYS2E54qTFllNJU1Zz2vBvUHJ4=",
+  "Hash": "i+uarjKQiZ4ILeF8R484qqcQvkmini0IDa5h1GJXpCw=",
   "Source": "SignalR_App.WebUI",
   "BasePath": "_content/SignalR_App.WebUI",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\admin_chat.css"
+    },
+    {
+      "Identity": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\css\\login.css",
+      "SourceId": "SignalR_App.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\",
+      "BasePath": "_content/SignalR_App.WebUI",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Presentation\\SignalR_App.WebUI\\wwwroot\\css\\site.css",

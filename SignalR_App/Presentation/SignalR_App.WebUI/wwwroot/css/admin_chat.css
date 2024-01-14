@@ -2,7 +2,10 @@ body {
     background-color: #f4f7f6;
     margin-top: 20px;
 }
-
+#chat-history {
+    max-height: 430px; /* Mesaj geçmiþinin maksimum yüksekliði */
+    overflow-y: auto; /* Dikey kaydýrmayý etkinleþtir */
+}
 .card {
     background: #fff;
     transition: .5s;

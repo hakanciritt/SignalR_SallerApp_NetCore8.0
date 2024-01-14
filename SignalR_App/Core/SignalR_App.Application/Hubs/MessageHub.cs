@@ -25,10 +25,19 @@ namespace SignalR_App.Application.Hubs
             var redis = _redisConfiguration.Connect();
 
             string key = $"chatuser:{address}";
-            await redis.StringSetAsync($"user-connection:{address}", Context.ConnectionId);
 
+            //await redis.HashSetAsync($"user-connection:{address}",
+            //[
+            //    new HashEntry("ConnectionId", Context.ConnectionId),
+            //    new HashEntry("TempUserName", "Hakan Cirit")
+            //]);
+
+            await redis.HashSetAsync($"user-connection:{address}", "ConnectionId", Context.ConnectionId);
+
+            var tempUserName = await redis.HashGetAsync($"user-connection:{address}", "TempUserName");
+            tempUserName = !string.IsNullOrEmpty(tempUserName.ToString()) ? tempUserName : "Hakan Cirit";
             await redis.StreamAddAsync(key, new[] {
-                new NameValueEntry("User", "Customer"),
+                new NameValueEntry("User", tempUserName),
                 new NameValueEntry("Message", message)
             });
 
@@ -40,7 +49,7 @@ namespace SignalR_App.Application.Hubs
         {
             var redis = _redisConfiguration.Connect();
 
-            var connectionId = await redis.StringGetAsync(user);
+            var connectionId = await redis.HashGetAsync(user, "ConnectionId");
 
             await redis.StreamAddAsync(user.Replace("user-connection", "chatuser"), new[] {
                 new NameValueEntry("User", "Admin"),
