@@ -8,7 +8,7 @@ using StackExchange.Redis;
 namespace SignalR_App.Application.Hubs
 {
     public class MessageHub : Hub
-    {
+   { 
         private readonly UserManager<AppUser> _userManager;
         private readonly RedisConfiguration _redisConfiguration;
 

@@ -1,0 +1,58 @@
+﻿<Properties StartupConfiguration="{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Core/SignalR_App.Application/Hubs/MainHub.cs">
+    <Files>
+      <File FileName="Core/SignalR_App.Application/Services/Concretes/ProductService.cs" Line="66" Column="1" />
+      <File FileName="Presentation/SignalR_App.Api/appsettings.Development.json" Line="11" Column="4" />
+      <File FileName="Presentation/SignalR_App.Api/Program.cs" Line="64" Column="1" />
+      <File FileName="Core/SignalR_App.Application/Hubs/MessageHub.cs" Line="33" Column="18" />
+      <File FileName="Core/SignalR_App.Application/Hubs/MainHub.cs" Line="28" Column="1" />
+      <File FileName="Core/SignalR_App.Application/Hubs/MessageHubService.cs" Line="1" Column="1" />
+      <File FileName="Core/SignalR_App.Application/Hubs/ReceiverNames.cs" Line="1" Column="1" />
+      <File FileName="Core/SignalR_App.Application/Hubs/BookingHubService.cs" Line="26" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SignalR_App">
+            <Node name="Core" expanded="True">
+              <Node name="SignalR_App.Application">
+                <Node name="Hubs" expanded="True">
+                  <Node name="MainHub.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Infrastracture" expanded="True">
+              <Node name="SignalR_App.Persistence">
+                <Node name="EntityFramework" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="Presentation" expanded="True">
+              <Node name="SignalR_App.Api">
+                <Node name="Properties" expanded="True" />
+                <Node name="appsettings.json" expanded="True" />
+              </Node>
+              <Node name="SignalR_App.WebUI">
+                <Node name="appsettings.json" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Presentation.SignalR__App.WebUI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.Presentation.SignalR__App.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple_Projects" Name="Multiple_Projects">
+      <Items>
+        <StartupItem ItemId="{B4D35B41-F6CA-4BB6-A928-BC77A1EC2E78}" ItemName="SignalR_App.Api" ConfigurationId="https" />
+        <StartupItem ItemId="{80754A61-047D-4DD9-8111-2CFAD241C8BB}" ItemName="SignalR_App.WebUI" ConfigurationId="https" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

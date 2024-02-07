@@ -131,6 +131,7 @@ void CreatePermissions()
 {
     try
     {
+        
         using var scope = app.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<SignalRDbContext>();
         var permissions = typeof(Permissions).GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
@@ -148,6 +149,7 @@ void CreatePermissions()
             counter++;
         }
         if (counter > 0) context.SaveChanges();
+        
     }
     catch (Exception e)
     {

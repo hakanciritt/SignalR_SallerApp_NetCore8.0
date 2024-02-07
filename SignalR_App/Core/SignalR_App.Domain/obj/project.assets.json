@@ -1891,26 +1891,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hakan\\.nuget\\packages\\": {}
+    "/Users/hakancirit/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Domain\\SignalR_App.Domain.csproj",
+      "projectUniqueName": "/Users/hakancirit/Projects/SignalR_SallerApp_NetCore8.0/SignalR_App/Core/SignalR_App.Domain/SignalR_App.Domain.csproj",
       "projectName": "SignalR_App.Domain",
-      "projectPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Domain\\SignalR_App.Domain.csproj",
-      "packagesPath": "C:\\Users\\hakan\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\SignalR_SallerApp_NetCore8.0\\SignalR_App\\Core\\SignalR_App.Domain\\obj\\",
+      "projectPath": "/Users/hakancirit/Projects/SignalR_SallerApp_NetCore8.0/SignalR_App/Core/SignalR_App.Domain/SignalR_App.Domain.csproj",
+      "packagesPath": "/Users/hakancirit/.nuget/packages/",
+      "outputPath": "/Users/hakancirit/Projects/SignalR_SallerApp_NetCore8.0/SignalR_App/Core/SignalR_App.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hakan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/hakancirit/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1954,7 +1952,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

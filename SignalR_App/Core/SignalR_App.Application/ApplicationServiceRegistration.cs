@@ -17,15 +17,16 @@ namespace SignalR_App.Application
 
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = "localhost:6379,abortConnect=false ";
+                options.Configuration = "127.0.0.1:6379";
                 options.InstanceName = "master";
             });
 
             services.AddSingleton(provider =>
             {
-                var connection = ConnectionMultiplexer.Connect("localhost:6379,abortConnect=false ");
+                var connection = ConnectionMultiplexer.Connect("127.0.0.1:6379");
                 return new RedisConfiguration(connection);
             });
+
             services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
 
             services.AddScoped<IBookingService, BookingService>();
@@ -50,7 +51,6 @@ namespace SignalR_App.Application
             services.AddScoped<IBookingHubService, BookingHubService>();
 
             #endregion
-
 
         }
     }
