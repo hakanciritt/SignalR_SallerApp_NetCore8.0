@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery-ajax-unobtrusive@3.2.6",
+      "destination": "wwwroot/js/jquery-ajax-unobtrusive/",
+      "files": [
+        "jquery.unobtrusive-ajax.min.js"
+      ]
+    },
+    {
+      "library": "sweetalert2@11.10.1",
+      "destination": "wwwroot/js/sweetalert2/",
+      "files": [
+        "sweetalert2.min.js",
+        "sweetalert2.min.css"
+      ]
+    },
+    {
+      "library": "microsoft-signalr@8.0.0",
+      "destination": "wwwroot/js/microsoft-signalr/",
+      "files": [
+        "signalr.min.js"
+      ]
+    }
+  ]
+}

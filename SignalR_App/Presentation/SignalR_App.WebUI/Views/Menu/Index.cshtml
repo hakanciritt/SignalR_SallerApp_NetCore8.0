@@ -1,0 +1,77 @@
+﻿@model MenuViewModel
+
+
+<section class="food_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our Menu
+            </h2>
+        </div>
+        @{
+            var categories = Model.Products.DistinctBy(c => c.CategoryId).Select(d => d.Category).ToList();
+        }
+        <ul class="filters_menu">
+
+            <li class="active" data-filter="*">All</li>
+            @foreach (var category in categories)
+            {
+                <li data-filter=".@category?.Id">@category?.Name</li>
+            }
+
+        </ul>
+
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-sm-6 col-lg-4 all @product.CategoryId">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="~/feane-1.0.0/images/f1.png" alt="@product.Name">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @product.Name
+                                    </h5>
+                                    <p>
+                                        @product.Description
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @product.Price.ToString("N2") ₺
+                                        </h6>
+                                        <a href="#" class="product-item" data-id="@product.Id" data-product-name="@product.Name">
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $(".product-item").click(function (e) {
+                var id = $(this).attr("data-id");
+                var productName = $(this).attr("data-product-name");
+
+                Swal.fire({
+                    title: "Successed",
+                    text: `${productName} adlı ürün sepetinize eklendi`,
+                    icon: "success"
+                });
+
+            });
+
+        });
+    </script>
+}
