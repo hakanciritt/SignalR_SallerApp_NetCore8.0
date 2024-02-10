@@ -1,14 +1,13 @@
+using System.Reflection;
+using System.Text;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SignalR_App.Application;
 using SignalR_App.Application.Hubs;
-using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Persistence;
 using SignalR_App.Persistence.EntityFramework;
-using System.Reflection;
-using System.Text;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,11 +35,11 @@ builder.Services.AddAuthentication(options =>
             LifetimeValidator = (notBefore, expires, securityToken, validationParameters) =>
             {
                 bool expireCheck = expires.HasValue ? expires.Value > DateTime.UtcNow : false;
-                if (expireCheck)
-                {
-                    var userService = (IUserService)builder.Services.FirstOrDefault(c => c.ServiceType == typeof(IUserService));
-                    if (userService != null) userService.Logout().Wait();
-                }
+                //if (expireCheck)
+                //{
+                //    var userService = (IUserService)builder.Services.FirstOrDefault(c => c.ServiceType == typeof(IUserService));
+                //    if (userService != null) userService.Logout().Wait();
+                //}
                 return expireCheck;
             },
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey))
@@ -106,7 +105,7 @@ var app = builder.Build();
 app.Lifetime.ApplicationStarted.Register(CreatePermissions);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -131,7 +130,6 @@ void CreatePermissions()
 {
     try
     {
-        
         using var scope = app.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<SignalRDbContext>();
         var permissions = typeof(Permissions).GetFields(BindingFlags.Public | BindingFlags.Static).ToList();

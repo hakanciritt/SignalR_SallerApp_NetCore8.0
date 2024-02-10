@@ -11,7 +11,7 @@ namespace SignalR_App.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var model = new MenuViewModel();
-            var products = await _httpClientFactory.CreateClient("Products").GetAsync("Products/GetAllProductsForWeb");
+            var products = await _httpClientFactory.CreateClient("ProductsWeb").GetAsync("Products/GetAllProductsForWeb");
             var productResult = await products.Content.ReadFromJsonAsync<List<ProductDto>>();
             model.Products = productResult ?? new();
 

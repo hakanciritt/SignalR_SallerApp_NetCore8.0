@@ -14,7 +14,7 @@ namespace SignalR_App.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var result = await _httpClientFactory.CreateClient("Sliders").GetAsync("Sliders");
-            var products = await _httpClientFactory.CreateClient("Products").GetAsync("Products/GetAllProductsForWeb");
+            var products = await _httpClientFactory.CreateClient("ProductsWeb").GetAsync("Products/GetAllProductsForWeb");
             var sliders = await result.Content.ReadFromJsonAsync<List<SliderDto>>();
             var productResult = await products.Content.ReadFromJsonAsync<List<ProductDto>>();
 

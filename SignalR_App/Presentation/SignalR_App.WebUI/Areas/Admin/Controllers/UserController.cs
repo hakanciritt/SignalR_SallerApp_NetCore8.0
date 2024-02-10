@@ -60,11 +60,16 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             var claimsPrincipal = token.ValidateToken(tokenDto.Token, tokenParameters, out SecurityToken validatedToken);
             if (validatedToken is not null)
             {
-
                 await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, claimsPrincipal, new()
                 {
                     ExpiresUtc = tokenDto.Expiration,
                 });
+
+                HttpContext.Response.Headers.Add("Authorization", $"Bearer {tokenDto.Token}");
+                HttpContext.Request.Headers.Add("Authorization", $"Bearer {tokenDto.Token}");
+
+                HttpContext.Response.Cookies.Append("token",tokenDto.Token);
+
                 return RedirectToAction("Index", "Home");
             }
 

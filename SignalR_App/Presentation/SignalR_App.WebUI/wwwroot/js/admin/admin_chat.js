@@ -19,6 +19,8 @@
             type: 'GET',
             success: function (response) {
                 $("#chat-history").html(response);
+                console.log(response);
+
             }
         })
     });
