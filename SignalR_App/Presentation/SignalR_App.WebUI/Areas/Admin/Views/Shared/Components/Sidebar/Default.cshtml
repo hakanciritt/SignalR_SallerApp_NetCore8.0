@@ -1,4 +1,5 @@
-﻿<div class="sidebar">
+﻿
+<div class="sidebar">
     <div class="scrollbar-inner sidebar-wrapper">
         <div class="user">
             <div class="photo">
@@ -50,24 +51,43 @@
                     <span class="badge badge-count">14</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a asp-area="Admin" asp-controller="Category" asp-action="Index">
-                    <i class="la la-keyboard-o"></i>
-                    <p>Kategoriler</p>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a asp-area="Admin" asp-controller="Product" asp-action="Index">
-                    <i class="la la-th"></i>
-                    <p>Ürünler</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a asp-area="Admin" asp-controller="TextContent" asp-action="Index">
-                    <i class="la la-font"></i>
-                    <p>Sayfalar</p>
-                </a>
-            </li>
+            @if (IsInPermission("Category.Read"))
+            {
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Category" asp-action="Index">
+                        <i class="la la-keyboard-o"></i>
+                        <p>Kategoriler</p>
+                    </a>
+                </li>
+            }
+
+            @if (IsInPermission("Product.Read"))
+            {
+                <li class="nav-item active">
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Index">
+                        <i class="la la-th"></i>
+                        <p>Ürünler</p>
+                    </a>
+                </li>
+            }
+            @if (IsInPermission("Pages"))
+            {
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="TextContent" asp-action="Index">
+                        <i class="la la-font"></i>
+                        <p>Sayfalar</p>
+                    </a>
+                </li>
+            }
+            @if (IsInPermission("Messages"))
+            {
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Chat" asp-action="Index">
+                        <i class="la la-fonticons"></i>
+                        <p>Mesajlar</p>
+                    </a>
+                </li>
+            }
             <li class="nav-item">
                 <a href="~/Ready-Bootstrap-Dashboard-master/notifications.html">
                     <i class="la la-bell"></i>
@@ -76,12 +96,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a asp-area="Admin" asp-controller="Chat" asp-action="Index">
-                    <i class="la la-fonticons"></i>
-                    <p>Mesajlar</p>
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a href="~/Ready-Bootstrap-Dashboard-master/icons.html">
                     <i class="la la-fonticons"></i>

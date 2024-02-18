@@ -4,6 +4,8 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
 namespace SignalR_App.Application.Filters
@@ -11,6 +13,7 @@ namespace SignalR_App.Application.Filters
     public class CustomAuthorizeAttribute : Attribute, IAuthorizationFilter
     {
         List<string> _permissions { get; set; } = new();
+
         public CustomAuthorizeAttribute() { }
         public CustomAuthorizeAttribute(params string[] permissions)
         {
@@ -30,6 +33,8 @@ namespace SignalR_App.Application.Filters
 
             if (attribute != null) return;
 
+            var configuration = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
+
             var token = context?.HttpContext.Request.Headers["Authorization"].ToString();
             if (string.IsNullOrEmpty(token))
             {
@@ -38,11 +43,9 @@ namespace SignalR_App.Application.Filters
                 return;
             }
 
-            //todo:hakan buradaki bilgiler configuration dosyasından çekilir hale getirilecek.
-
-            var issuer = "signalrapp.com";
-            var audience = "https://localhost:7215";
-            var securityKey = "secretkey123578@Gaserikaqwertyukey";
+            var issuer = configuration["Jwt:Issuer"] ?? "signalrapp.com";
+            var audience = configuration["Jwt:Audience"] ?? "https://localhost:7215";
+            var securityKey = configuration["Jwt:SecurityKey"] ?? "secretkey123578@Gaserikaqwertyukey";
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenParameters = new TokenValidationParameters()
@@ -56,7 +59,7 @@ namespace SignalR_App.Application.Filters
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey))
             };
 
-            token = token.Replace("Bearer ", "").Replace("bearer ", "").Replace(" ", "");
+            token = token.Replace("Bearer", "").Replace("bearer", "").Replace(" ", "");
 
             var claimsPrincipal = tokenHandler.ValidateToken(token, tokenParameters, out SecurityToken validatedToken);
             if (validatedToken is null)

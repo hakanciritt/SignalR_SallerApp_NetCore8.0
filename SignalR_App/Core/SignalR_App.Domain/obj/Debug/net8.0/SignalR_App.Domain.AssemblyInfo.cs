@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalR_App.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f32d5f13dbbd7c8fed6f17ad3694b6db18cc8853")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d315ac1cc73b3cf2cf11dae191e488d9a17384a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignalR_App.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignalR_App.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

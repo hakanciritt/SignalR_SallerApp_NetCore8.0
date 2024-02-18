@@ -10,8 +10,12 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Helpers\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\Ready-Bootstrap-Dashboard-master\.DS_Store" />
   </ItemGroup>
