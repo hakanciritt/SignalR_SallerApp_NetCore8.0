@@ -6,7 +6,8 @@ using SignalR_App.Domain.Entitites;
 
 namespace SignalR_App.Api.Controllers
 {
-    public class AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
+    public class AuthController(UserManager<AppUser> userManager,
+        SignInManager<AppUser> signInManager,
         ITokenService tokenService,
         IUserService userService) : ApiControllerBase
     {
@@ -42,6 +43,7 @@ namespace SignalR_App.Api.Controllers
 
             return BadRequest(loginResult);
         }
+
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
         {

@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SignalR_App.Application.Dtos.BasketDtos;
-using SignalR_App.Application.Dtos.Dtos;
-using SignalR_App.Application.Dtos.ProductDtos;
 using SignalR_App.WebUI.Models;
-using System.Net.Http;
 
 namespace SignalR_App.WebUI.Controllers
 {

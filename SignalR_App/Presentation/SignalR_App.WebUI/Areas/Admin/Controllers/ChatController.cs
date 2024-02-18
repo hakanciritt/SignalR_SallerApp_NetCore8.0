@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SignalR_App.Application.Dtos;
+using SignalR_App.WebUI.Areas.Admin.Models;
 
 namespace SignalR_App.WebUI.Areas.Admin.Controllers
 {
@@ -21,7 +22,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
         }
         public async Task<PartialViewResult> GetMessageListByUser(string user)
         {
-            var result = await _httpClient.GetFromJsonAsync<List<ChatDto>>($"Chats/{user}");
+            var result = await _httpClient.GetFromJsonAsync<List<ChatModel>>($"Chats/{user}");
 
             return PartialView(result);
         }
