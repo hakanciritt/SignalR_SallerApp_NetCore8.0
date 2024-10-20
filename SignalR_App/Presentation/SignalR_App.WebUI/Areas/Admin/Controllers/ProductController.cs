@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application;
+using SignalR_App.Application.Filters;
 using SignalR_App.Domain.Result;
 using SignalR_App.Domain.Results;
 using SignalR_App.WebUI.Areas.Admin.Models.Categories;
 using SignalR_App.WebUI.Areas.Admin.Models.Products;
-using System.Text;
-using System.Text.Json;
 
 namespace SignalR_App.WebUI.Areas.Admin.Controllers
 {
@@ -13,12 +15,14 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
         private readonly HttpClient _httpClient = httpClientFactory.CreateClient("Products");
         private readonly HttpClient _httpClientForCategory = httpClientFactory.CreateClient("Categories");
 
+        [CustomAuthorizeWeb(Permissions.ProductRead)]
         public async Task<IActionResult> Index()
         {
             var result = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("Products");
             return View(result);
         }
 
+        [CustomAuthorizeWeb(Permissions.ProductRead)]
         public async Task<IActionResult> CreateOrUpdate(int? productId)
         {
             var categories = await _httpClientForCategory.GetFromJsonAsync<List<CategoryViewModel>>("Categories", HttpContext.RequestAborted);
@@ -30,6 +34,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [CustomAuthorizeWeb(Permissions.ProductCreateOrUpdate)]
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateOrUpdate(ProductViewModel model)
         {
@@ -43,6 +48,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             return Json(response);
         }
 
+        [CustomAuthorizeWeb(Permissions.ProductDelete)]
         public async Task<IActionResult> Delete(int productId)
         {
             var request = await _httpClient.DeleteAsync($"Products/{productId}", HttpContext.RequestAborted);

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application;
+using SignalR_App.Application.Filters;
 using SignalR_App.Domain.Result;
 using SignalR_App.Domain.Results;
 using SignalR_App.WebUI.Areas.Admin.Models.Categories;
@@ -11,6 +13,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
     {
         private readonly HttpClient _httpClient = httpClientFactory.CreateClient("Categories");
 
+        [CustomAuthorizeWeb(Permissions.CategoryRead)]
         public async Task<IActionResult> Index()
         {
             var result = await _httpClient.GetFromJsonAsync<List<CategoryViewModel>>("Categories");
@@ -18,6 +21,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             return View(result);
         }
 
+        [CustomAuthorizeWeb(Permissions.CategoryRead)]
         public async Task<IActionResult> CreateOrUpdate(int? categoryId)
         {
             if (!categoryId.HasValue) return View(new CategoryViewModel());
@@ -27,6 +31,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [CustomAuthorizeWeb(Permissions.CategoryCreateOrUpdate)]
         public async Task<IActionResult> CreateOrUpdate(CategoryViewModel model)
         {
             var requestModel = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
@@ -46,6 +51,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [CustomAuthorizeWeb(Permissions.CategoryDelete)]
         public async Task<IActionResult> Delete(int categoryId)
         {
             var request = await _httpClient.DeleteAsync($"Categories/{categoryId}", HttpContext.RequestAborted);

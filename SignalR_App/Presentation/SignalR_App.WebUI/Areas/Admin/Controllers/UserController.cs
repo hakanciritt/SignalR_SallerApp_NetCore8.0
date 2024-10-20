@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SignalR_App.Application.Dtos.AuthenticateDtos;
 using SignalR_App.Application.Dtos.TokenDtos;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using System.Text.Json;
 
 namespace SignalR_App.WebUI.Areas.Admin.Controllers
 {
@@ -18,7 +18,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new LoginDto());
         }
 
         public async Task<IActionResult> Logout()
@@ -29,6 +29,7 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginDto login)
         {

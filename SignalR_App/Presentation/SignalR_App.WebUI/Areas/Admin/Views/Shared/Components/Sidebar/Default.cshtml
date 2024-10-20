@@ -1,4 +1,9 @@
-﻿
+﻿@inject SignalR_App.WebUI.Areas.Admin.PermissionManager PermissionManager
+@{
+    var controller = ViewContext.RouteData.Values["controller"]!.ToString();
+    var action = ViewContext.RouteData.Values["action"]!.ToString();
+
+}
 <div class="sidebar">
     <div class="scrollbar-inner sidebar-wrapper">
         <div class="user">
@@ -51,37 +56,38 @@
                     <span class="badge badge-count">14</span>
                 </a>
             </li>
-            @if (IsInPermission("Category.Read"))
+
+            @if (PermissionManager.IsInPermission("Category.Read"))
             {
-                <li class="nav-item">
+                <li class="nav-item @(controller == "Category" && action == "Index" ? "active" : "" )">
                     <a asp-area="Admin" asp-controller="Category" asp-action="Index">
-                        <i class="la la-keyboard-o"></i>
+                        <i lascs="la la-keyboard-o"></i>
                         <p>Kategoriler</p>
                     </a>
                 </li>
             }
 
-            @if (IsInPermission("Product.Read"))
+            @if (PermissionManager.IsInPermission("Product.Read"))
             {
-                <li class="nav-item active">
+                <li class="nav-item @(controller == "Product" && action == "Index" ? "active" : "" )">
                     <a asp-area="Admin" asp-controller="Product" asp-action="Index">
                         <i class="la la-th"></i>
                         <p>Ürünler</p>
                     </a>
                 </li>
             }
-            @if (IsInPermission("Pages"))
+            @if (PermissionManager.IsInPermission("Pages"))
             {
-                <li class="nav-item">
+                <li class="nav-item @(controller == "TextContent" && action == "Index" ? "active" : "" )">
                     <a asp-area="Admin" asp-controller="TextContent" asp-action="Index">
                         <i class="la la-font"></i>
                         <p>Sayfalar</p>
                     </a>
                 </li>
             }
-            @if (IsInPermission("Messages"))
+            @if (PermissionManager.IsInPermission("Messages"))
             {
-                <li class="nav-item">
+                <li class="nav-item @(controller == "Chat" && action == "Index" ? "active" : "" )">
                     <a asp-area="Admin" asp-controller="Chat" asp-action="Index">
                         <i class="la la-fonticons"></i>
                         <p>Mesajlar</p>

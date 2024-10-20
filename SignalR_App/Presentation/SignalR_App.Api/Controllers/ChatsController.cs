@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application;
 using SignalR_App.Application.Dtos;
+using SignalR_App.Application.Filters;
 using SignalR_App.Application.Redis;
 using StackExchange.Redis;
 
 namespace SignalR_App.Api.Controllers
 {
+    [CustomAuthorize(Permissions.Messages)]
     public class ChatsController(RedisConfiguration redis) : ApiControllerBase
     {
         private readonly RedisConfiguration _redis = redis;

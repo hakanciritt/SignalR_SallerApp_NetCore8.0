@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SignalR_App.WebUI;
+using SignalR_App.WebUI.Areas.Admin;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<PermissionManager>();
 builder.Services.AddScoped<TokenDelegateHandler>();
 builder.Services.AddAuthentication(opt =>
 {
@@ -31,12 +33,12 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 
 #region Admin Services
 
-builder.Services.AddHttpClient("Categories", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>(); ;
+builder.Services.AddHttpClient("Categories", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>();
 builder.Services.AddHttpClient("Products", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>();
-builder.Services.AddHttpClient("TextContent", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
-builder.Services.AddHttpClient("Sliders", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
-builder.Services.AddHttpClient("Bookings", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
-builder.Services.AddHttpClient("Chats", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
+builder.Services.AddHttpClient("TextContent", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>();
+builder.Services.AddHttpClient("Sliders", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>(); ;
+builder.Services.AddHttpClient("Bookings", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>(); ;
+builder.Services.AddHttpClient("Chats", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"])).AddHttpMessageHandler<TokenDelegateHandler>(); ;
 builder.Services.AddHttpClient("Auth", options => options.BaseAddress = new Uri(builder.Configuration["ApiUrl"]));
 
 #endregion

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application;
 using SignalR_App.Application.Dtos.TextContentDtos;
 using SignalR_App.Application.Filters;
 using SignalR_App.Application.Services.Abstracts;
@@ -32,6 +33,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpGet]
+        [CustomAuthorize(Permissions.Pages)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _textContentService.GetAll();
@@ -39,6 +41,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [CustomAuthorize(Permissions.PagesDelete)]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _textContentService.Delete(id);
@@ -46,6 +49,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpPut]
+        [CustomAuthorize(Permissions.PagesCreateOrUpdate)]
         public async Task<IActionResult> Update(TextContentDto textContent)
         {
             var result = await _textContentService.Update(textContent);
@@ -53,6 +57,7 @@ namespace SignalR_App.Api.Controllers
         }
 
         [HttpPost]
+        [CustomAuthorize(Permissions.PagesCreateOrUpdate)]
         public async Task<IActionResult> Create(TextContentDto textContent)
         {
             var result = await _textContentService.Create(textContent);

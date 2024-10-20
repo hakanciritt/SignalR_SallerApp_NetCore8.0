@@ -3,9 +3,14 @@ using SignalR_App.WebUI.Models;
 
 namespace SignalR_App.WebUI.Controllers
 {
-    public class BasketController(IHttpClientFactory httpClientFactory) : Controller
+    public class BasketController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory = httpClientFactory;
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public BasketController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
 
         public async Task<IActionResult> Index()
         {

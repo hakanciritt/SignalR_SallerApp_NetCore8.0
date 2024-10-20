@@ -1,44 +1,4 @@
 ﻿<Properties StartupConfiguration="Multiple_Projects">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Presentation.SignalR__App.WebUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Core/SignalR_App.Application/Filters/CustomAuthorizeAttribute.cs">
-    <Files>
-      <File FileName="Presentation/SignalR_App.WebUI/Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="Core/SignalR_App.Application/Filters/CustomAuthorizeAttribute.cs" Line="46" Column="39" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="SignalR_App" expanded="True">
-            <Node name="Core" expanded="True">
-              <Node name="SignalR_App.Application">
-                <Node name="Filters" expanded="True">
-                  <Node name="CustomAuthorizeAttribute.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-            <Node name="Presentation" expanded="True">
-              <Node name="SignalR_App.Api" expanded="True" />
-              <Node name="SignalR_App.WebUI" expanded="True">
-                <Node name="Areas" expanded="True">
-                  <Node name="Admin" expanded="True" />
-                </Node>
-                <Node name="Helpers" expanded="True" />
-                <Node name="Views" expanded="True">
-                  <Node name="Basket" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Presentation.SignalR__App.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple_Projects" Name="Multiple_Projects">
       <Items>
@@ -47,4 +7,37 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.Presentation.SignalR__App.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Presentation.SignalR__App.WebUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Presentation/SignalR_App.WebUI/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="Presentation/SignalR_App.WebUI/Views/_ViewStart.cshtml" />
+      <File FileName="Core/SignalR_App.Application/Filters/CustomAuthorizeAttribute.cs" Line="74" Column="63" />
+      <File FileName="Presentation/SignalR_App.WebUI/Controllers/BasketController.cs" Line="27" Column="10" />
+      <File FileName="Presentation/SignalR_App.WebUI/Controllers/BookATableController.cs" Line="7" Column="44" />
+      <File FileName="Presentation/SignalR_App.WebUI/Controllers/HomeController.cs" Line="18" Column="73" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SignalR_App" expanded="True">
+            <Node name="Core" expanded="True" />
+            <Node name="Presentation" expanded="True">
+              <Node name="SignalR_App.WebUI" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="SignalR_App" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

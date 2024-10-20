@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SignalR_App.Application.Dtos.TokenDtos;
 using SignalR_App.Application.Services.Abstracts;
 using SignalR_App.Domain.Entitites;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace SignalR_App.Application.Services.Concretes
 {
@@ -51,6 +51,7 @@ namespace SignalR_App.Application.Services.Concretes
             var claims = (await _userManager.GetClaimsAsync(user)) ?? new List<Claim>();
             claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
             claims.Add(new Claim(ClaimTypes.Name, user.Name));
+            claims.Add(new Claim(ClaimTypes.Email, user.Email ?? ""));
             claims.Add(new Claim(ClaimTypes.Surname, user.SurName));
 
             return claims.ToList();

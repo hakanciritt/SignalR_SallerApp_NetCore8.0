@@ -14,6 +14,8 @@
         public const string ProductDelete = "Product.Delete";
 
         public const string Pages = "Pages";
+        public const string PagesCreateOrUpdate = "Pages.AddOrUpdate";
+        public const string PagesDelete = "Pages.Delete";
         public const string Messages = "Messages";
 
 

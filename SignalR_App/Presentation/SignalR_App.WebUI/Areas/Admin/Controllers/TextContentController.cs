@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SignalR_App.Application;
+using SignalR_App.Application.Filters;
 using SignalR_App.Domain.Result;
 using SignalR_App.WebUI.Areas.Admin.Models.TextContents;
 using System.Text;
@@ -11,12 +13,13 @@ namespace SignalR_App.WebUI.Areas.Admin.Controllers
 
         private readonly HttpClient _httpClient = httpClientFactory.CreateClient("TextContent");
 
+        [CustomAuthorizeWeb(Permissions.Pages)]
         public async Task<IActionResult> Index()
         {
             var result = await _httpClient.GetFromJsonAsync<List<TextContentViewModel>>("TextContents");
             return View(result);
         }
-
+        [CustomAuthorizeWeb(Permissions.PagesCreateOrUpdate)]
         public async Task<IActionResult> CreateOrUpdate(int? textContentId)
         {
             if (!textContentId.HasValue) return View(new TextContentViewModel());
